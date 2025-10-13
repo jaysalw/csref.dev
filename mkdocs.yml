@@ -24,13 +24,13 @@ theme:
     - navigation.top
   palette:
     - scheme: slate
-      primary: green
+      primary: teal
       accent: lime
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
     - scheme: default
-      primary: green
+      primary: teal
       accent: lime
       toggle:
         icon: material/weather-night
