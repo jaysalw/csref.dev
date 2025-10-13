@@ -4,10 +4,21 @@ hide:
   - toc
 ---
 
+!!! info "[:material-comment-text: This site is in the works!]"
+    Some pages, notes, etc may not be available or complete.
+
 <div class="hero">
    This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University.
   <a class="md-button md-button--primary" href="how_it_works/">Start Reading</a>
 </div>
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/jaysalw/csref.dev?style=for-the-badge&logo=github)](https://github.com/jaysalw/csref.dev/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/pulls)
+[![GitHub last commit](https://img.shields.io/github/last-commit/jaysalw/csref.dev?style=for-the-badge&logo=git)](https://github.com/jaysalw/csref.dev/commits/main)
+[![GitHub Pages](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-2ea44f?style=for-the-badge&logo=github)](https://jaysalw.github.io/csref.dev/)
+[![License](https://img.shields.io/github/license/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/blob/main/LICENSE)
 
 ## 🗃️ Modules
 
@@ -28,7 +39,7 @@ hide:
 
 </div>
 
-### 3️⃣ Level 4 Modules
+### 4️⃣ Level 4 Modules
 <div class="grid cards" markdown>
 
 -   :material-computer: **Computing Skills**  
