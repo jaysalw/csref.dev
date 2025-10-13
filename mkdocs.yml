@@ -65,7 +65,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Level 3:
-    - Overview: level-3/overview/
+    - Overview: level-3/overview.md
     - Basic Programming:
       - Overview: level-3/basic-programming/overview.md
     - Core Topics:
@@ -73,7 +73,7 @@ nav:
     - Using Git:
       - Overview: level-3/using-git/overview.md
   - Level 4:
-    - Overview: level-4/overview/
+    - Overview: level-4/overview.md
     - Computing Skills:
       - Overview: level-4/computing-skills/overview.md
     - Software Development:
