@@ -16,7 +16,6 @@ hide:
 </div>
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/jaysalw/csref.dev?style=for-the-badge&logo=github)](https://github.com/jaysalw/csref.dev/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/network/members)
 [![GitHub issues](https://img.shields.io/github/issues/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/pulls)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jaysalw/csref.dev?style=for-the-badge&logo=git)](https://github.com/jaysalw/csref.dev/commits/main)
