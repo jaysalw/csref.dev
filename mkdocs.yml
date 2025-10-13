@@ -8,22 +8,24 @@ theme:
   name: material
   language: en
   features:
-    # header tabs + grouped sidebar like your screenshot
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
-    # QoL
     - navigation.instant
-    - content.code.copy
     - search.suggest
     - search.highlight
+    - content.code.copy
     - toc.integrate
+    - content.action.edit
+    - content.action.view
+    - content.footer
+    - navigation.footer
   palette:
-    - scheme: slate           # dark
-      primary: green          # Material green
-      accent: lime            # accent green
-# terminal-green overrides (neon vibe)
+    - scheme: slate
+      primary: green
+      accent: lime
+
 extra_css:
   - assets/custom.css
 
@@ -33,25 +35,25 @@ plugins:
       enable_creation_date: true
       type: timeago
       fallback_to_build_date: true
+  - git-committers:
+      repository: jaysalw/csref.dev
+      branch: main
+      enabled: true
 
 markdown_extensions:
-  # core
-  - admonition                # !!! note / tip / warning …
+  - admonition
   - def_list
   - footnotes
   - attr_list
   - md_in_html
-  # Material/pymdown goodies
-  - pymdownx.details          # collapsible admonitions
-  - pymdownx.superfences      # fenced code & nesting
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true   # content tabs
+      alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-# Top-level groups here become HEADER TABS
-# Headings inside become LEFT SIDEBAR "categories"
 nav:
   - Home: index.md
 
