@@ -1,21 +1,30 @@
-/* wider content */
+/* Terminal-green vibe (neon-ish, but readable) */
 :root {
-  --md-typeset-max-width: 52rem;
+  --md-primary-fg-color: #00ff66;         /* links, brand accents */
+  --md-accent-fg-color:  #a6ff00;         /* buttons, accents */
+  --md-default-bg-color: #0a0a0a;         /* page background */
+  --md-typeset-a-color:  #00ff99;         /* text links */
+  --md-code-bg-color:    #0f0f0f;         /* code blocks */
+  --md-default-fg-color: rgba(220,255,220,0.9);
 }
 
-/* homepage hero */
+/* subtle glow on hover for links & sidebar */
+a, .md-nav__link {
+  transition: color .15s ease, text-shadow .15s ease;
+}
+a:hover, .md-nav__link:hover {
+  text-shadow: 0 0 6px rgba(0,255,102,.7);
+}
+
+/* hero box on homepage */
 .hero {
   margin: 0 0 1.2rem 0;
-  padding: 1.2rem 1rem;
-  border-radius: 0.6rem;
-  background: var(--md-default-fg-color--lightest);
-}
-[data-md-color-scheme="slate"] .hero {
+  padding: 1.25rem 1.1rem;
+  border-radius: .75rem;
   background: rgba(255,255,255,.04);
+  border: 1px solid rgba(0,255,102,.15);
 }
 .hero .md-button { margin-right: .5rem; }
 
 /* card grid spacing tweak */
-.grid.cards > ul {
-  margin-top: .2rem;
-}
+.grid.cards > ul { margin-top: .2rem; }
