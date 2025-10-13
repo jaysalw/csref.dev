@@ -8,8 +8,9 @@ hide:
     Some pages, notes, etc may not be available or complete.
 
 <div class="hero">
-   This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University.
-  <a class="md-button md-button--primary" href="how_it_works/">Start Reading</a>
+   This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University. If you would like to contribute, please see the below page.
+
+  <a class="md-button md-button--primary" href="how_it_works/">Contribute</a>
 </div>
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/jaysalw/csref.dev?style=for-the-badge&logo=github)](https://github.com/jaysalw/csref.dev/stargazers)
