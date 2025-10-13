@@ -4,6 +4,9 @@ hide:
   - toc
 ---
 
+# 👋 Welcome to Computer Science Reference
+csref.dev is a collaborative collection of computer science notes and resources, organized by academic level. Explore modules on programming, software development, tech stacks, and more.
+
 !!! info "Construction Site!"
     Some pages, notes, etc may not be available or complete.  
 
