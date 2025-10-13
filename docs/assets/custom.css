@@ -1,15 +1,40 @@
 /*************************************************
  *  csref.dev — Custom tweaks for Material theme
- *  (keeps default Material header + palette)
+ *  (keeps default Material look; sets dark header)
  *************************************************/
 
-/* Restrict text width for readability */
+/* Limit content width for readability */
 :root {
   --md-typeset-max-width: 54rem;
 }
 
 /*************************************************
- *  HERO SECTION
+ *  FORCE HEADER COLOR IN DARK MODE
+ *************************************************/
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #14151a !important;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #14151a !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Search bar in header */
+[data-md-color-scheme="slate"] .md-search__inner,
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: #0f1115 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-md-color-scheme="slate"] .md-search__form input {
+  color: #e5e7eb !important;
+}
+
+/*************************************************
+ *  HERO SECTION (homepage)
  *************************************************/
 .hero {
   margin: 0 0 1.6rem 0;
@@ -102,7 +127,7 @@ a,
 
 a:hover,
 .md-nav__link:hover {
-  text-shadow: 0 0 6px rgba(129, 140, 248, 0.3); /* soft indigo glow */
+  text-shadow: 0 0 6px rgba(129, 140, 248, 0.3);
 }
 
 /*************************************************
