@@ -1,3 +1,69 @@
 site_name: csref.dev
-theme: 
-    name: material
+site_url: https://csref.dev
+repo_url: https://github.com/jaysalw/csref.dev
+repo_name: jaysalw/csref.dev
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  features:
+    # HEADER TABS + clean nav like the screenshot
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    # Quality of life
+    - navigation.instant
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+  palette:
+    - scheme: slate         # dark by default; switch to "default" if you want light
+      primary: indigo
+      accent: indigo
+
+# Search + “last updated” footer
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Top-level items become the HEADER TABS
+nav:
+  - Home: index.md
+  - Sections:
+      - Algorithms: sections/algorithms/index.md
+      - Programming: sections/programming/index.md
+      - Systems: sections/systems/index.md
+      - Math: sections/math/index.md
+      - AI: sections/ai/index.md
+  - Resources:
+      - Cheat-sheets: resources/cheats/index.md
+      - Contribute: resources/contribute.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jaysalw
+
+# Optional custom CSS for extra polish
+extra_css:
+  - assets/custom.css

@@ -1,0 +1,21 @@
+/* wider content */
+:root {
+  --md-typeset-max-width: 52rem;
+}
+
+/* homepage hero */
+.hero {
+  margin: 0 0 1.2rem 0;
+  padding: 1.2rem 1rem;
+  border-radius: 0.6rem;
+  background: var(--md-default-fg-color--lightest);
+}
+[data-md-color-scheme="slate"] .hero {
+  background: rgba(255,255,255,.04);
+}
+.hero .md-button { margin-right: .5rem; }
+
+/* card grid spacing tweak */
+.grid.cards > ul {
+  margin-top: .2rem;
+}
