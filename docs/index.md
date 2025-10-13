@@ -6,8 +6,8 @@ hide:
 > :3
 
 <div class="hero">
-  # 👋 Welcome to **csref.dev**
-  > This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University.
+  <h3>👋 Welcome to <b>csref.dev</b></h3>>
+   This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University.
   <a class="md-button md-button--primary" href="how_it_works/">Start Reading</a>
 </div>
 
