@@ -3,7 +3,6 @@ title: csref.dev
 hide:
   - toc
 ---
-> :3
 
 <div class="hero">
   <h3>👋 Welcome to <b>csref.dev</b></h3>>
