@@ -16,7 +16,14 @@ hide:
 
 ---
 
-## 🗃️ Modules
+## 🗃️ Module Map
+This map provides an overview of the topics and modules available in our notes, organized by level. Each section below lists the modules included at that level, along with a brief description and a link to access the content. Use this map to explore the areas covered and find resources relevant to your interests or study needs.
+
+!!! info "What do the Levels mean?"
+    - **Level 3** - University Foundation Year, equivilent to an A-Level or BTEC Extended Diploma Qualification/s.
+    - **Level 4** - First Year 
+    - **Level 5** - Second Year
+    - **Level 6** - Third Year
 
 ### 3️⃣ Level 3 Modules
 <div class="grid cards" markdown>
