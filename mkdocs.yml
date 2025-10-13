@@ -7,6 +7,8 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -23,18 +25,14 @@ theme:
     - navigation.footer
     - navigation.top
   palette:
-    - scheme: slate
-      primary: teal
-      accent: lime
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
     - scheme: default
-      primary: teal
-      accent: lime
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
 extra_css:
   - assets/custom.css
@@ -66,7 +64,6 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-
   - Getting started:
     - Installation: getting-started/installation.md
     - Creating your site: getting-started/creating.md
@@ -77,10 +74,8 @@ nav:
     - Philosophy: getting-started/philosophy.md
     - Alternatives: getting-started/alternatives.md
     - License: getting-started/license.md
-
   - Tutorials:
     - Blogs: tutorials/blogs.md
     - Social cards: tutorials/social-cards.md
-
   - Changelog:
     - How to upgrade: changelog/upgrade.md
