@@ -8,23 +8,25 @@ theme:
   name: material
   language: en
   features:
-    # HEADER TABS + clean nav like the screenshot
+    # header tabs + grouped sidebar like your screenshot
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
-    # Quality of life
+    # QoL
     - navigation.instant
     - content.code.copy
     - search.suggest
     - search.highlight
     - toc.integrate
   palette:
-    - scheme: slate         # dark by default; switch to "default" if you want light
-      primary: indigo
-      accent: indigo
+    - scheme: slate           # dark
+      primary: green          # Material green
+      accent: lime            # accent green
+# terminal-green overrides (neon vibe)
+extra_css:
+  - assets/custom.css
 
-# Search + “last updated” footer
 plugins:
   - search
   - git-revision-date-localized:
@@ -33,37 +35,40 @@ plugins:
       fallback_to_build_date: true
 
 markdown_extensions:
-  - admonition
-  - attr_list
+  # core
+  - admonition                # !!! note / tip / warning …
   - def_list
   - footnotes
+  - attr_list
   - md_in_html
-  - pymdownx.details
-  - pymdownx.superfences
+  # Material/pymdown goodies
+  - pymdownx.details          # collapsible admonitions
+  - pymdownx.superfences      # fenced code & nesting
   - pymdownx.tabbed:
-      alternate_style: true
+      alternate_style: true   # content tabs
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-# Top-level items become the HEADER TABS
+# Top-level groups here become HEADER TABS
+# Headings inside become LEFT SIDEBAR "categories"
 nav:
   - Home: index.md
-  - Sections:
-      - Algorithms: sections/algorithms/index.md
-      - Programming: sections/programming/index.md
-      - Systems: sections/systems/index.md
-      - Math: sections/math/index.md
-      - AI: sections/ai/index.md
-  - Resources:
-      - Cheat-sheets: resources/cheats/index.md
-      - Contribute: resources/contribute.md
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/jaysalw
+  - Getting started:
+    - Installation: getting-started/installation.md
+    - Creating your site: getting-started/creating.md
+    - Publishing your site: getting-started/publishing.md
+    - Customization: getting-started/customization.md
+    - Conventions: getting-started/conventions.md
+    - Browser support: getting-started/browser.md
+    - Philosophy: getting-started/philosophy.md
+    - Alternatives: getting-started/alternatives.md
+    - License: getting-started/license.md
 
-# Optional custom CSS for extra polish
-extra_css:
-  - assets/custom.css
+  - Tutorials:
+    - Blogs: tutorials/blogs.md
+    - Social cards: tutorials/social-cards.md
+
+  - Changelog:
+    - How to upgrade: changelog/upgrade.md
