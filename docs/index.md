@@ -1,44 +1,33 @@
 ---
 title: csref.dev
 hide:
-  - toc         # cleaner hero
+  - toc
 ---
 
 # 👋 Welcome to **csref.dev**
 
-> Your Computer Science reference hub — clean, fast, and organized.
+> :3
 
 <div class="hero">
   <p>Start exploring a section below or use the header tabs.</p>
-  <a class="md-button md-button--primary" href="sections/algorithms/">Browse Algorithms</a>
-  <a class="md-button" href="resources/cheats/">Open Cheat-sheets</a>
+  <a class="md-button md-button--primary" href="getting-started/installation/">Get started</a>
+  <a class="md-button" href="tutorials/blogs/">Try a tutorial</a>
 </div>
 
 ## 🔎 Quick Sections
 
 <div class="grid cards" markdown>
 
--   :material-sitemap: **Algorithms**  
-    Complexity, data structures, graph theory, DP, and more.  
-    [:material-arrow-right: Explore](sections/algorithms/)
+-   :material-rocket-launch: **Getting started**  
+    Install, run locally, deploy to Pages.  
+    [:material-arrow-right: Open](getting-started/installation/)
 
--   :material-code-tags: **Programming**  
-    Language notes, patterns, and snippets.  
-    [:material-arrow-right: Explore](sections/programming/)
+-   :material-school: **Tutorials**  
+    Hands-on guides and practical workflows.  
+    [:material-arrow-right: Open](tutorials/blogs/)
 
--   :material-cpu-64-bit: **Systems**  
-    OS, networking, compilers, distributed systems.  
-    [:material-arrow-right: Explore](sections/systems/)
-
--   :material-function-variant: **Math**  
-    Discrete math, linear algebra, probability.  
-    [:material-arrow-right: Explore](sections/math/)
-
--   :material-robot-outline: **AI**  
-    ML basics, DL tips, evaluation, tooling.  
-    [:material-arrow-right: Explore](sections/ai/)
+-   :material-update: **Changelog**  
+    How to upgrade safely and what changed.  
+    [:material-arrow-right: Open](changelog/upgrade/)
 
 </div>
-
-## 🆕 Recently added
-- :material-database: **yap yap** — yip yap
