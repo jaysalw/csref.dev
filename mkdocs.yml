@@ -65,13 +65,13 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Level 3:
-    - Overview: level-3/overview.md
-    - Basic Programming: level-3/basic-programming.md
-    - Core Topics: level-3/core-topics.md
-    - Using Git: level-3/using-git.md
+    - Overview: level-3/overview/
+    - Basic Programming: level-3/basic-programming/
+    - Core Topics: level-3/core-topics/
+    - Using Git: level-3/using-git/
   - Level 4:
-    - Overview: level-4/overview.md
-    - Computing Skills: level-4/computing-skills.md
-    - Software Development: level-4/software-development.md
-    - Tech Stack: level-4/tech-stack.md
-    - User Experience: level-4/user-experience.md
+    - Overview: level-4/overview/
+    - Computing Skills: level-4/computing-skills/
+    - Software Development: level-4/software-development/
+    - Tech Stack: level-4/tech-stack/
+    - User Experience: level-4/user-experience/
