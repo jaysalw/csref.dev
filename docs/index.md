@@ -10,8 +10,7 @@ hide:
     If you wish to help us with this collection of notes, feel free to head to the GitHub Repo.
 
 <div class="hero">
-   This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University. If you would like to contribute, please see the below page.
-
+   This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University. If you would like to contribute, please see the below page.<br>
   <a class="md-button md-button--primary" href="how_it_works/">Contribute</a>
 </div>
 
