@@ -67,18 +67,18 @@ nav:
   - Level 3:
     - Overview: level-3/overview/
     - Basic Programming:
-      - Overview: level-3/basic-programming/overview/
+      - Overview: level-3/basic-programming/overview.md
     - Core Topics:
-      - Overview: level-3/core-topics/overview/
+      - Overview: level-3/core-topics/overview.md
     - Using Git:
-      - Overview: level-3/using-git/overview/
+      - Overview: level-3/using-git/overview.md
   - Level 4:
     - Overview: level-4/overview/
     - Computing Skills:
-      - Overview: level-4/computing-skills/overview/
+      - Overview: level-4/computing-skills/overview.md
     - Software Development:
-      - Overview: level-4/software-development/overview/
+      - Overview: level-4/software-development/overview.md
     - Tech Stack:
-      - Overview: level-4/tech-stack/overview/
+      - Overview: level-4/tech-stack/overview.md
     - User Experience:
-      - Overview: level-4/user-experience/overview/
+      - Overview: level-4/user-experience/overview.md
