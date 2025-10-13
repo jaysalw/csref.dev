@@ -12,7 +12,6 @@ hide:
   <h1>BCs (Hons) Computer Science.</h1>
   <p>Course notes for the BCs (Hons) Computer Science Course @ Leeds Trinity University</p>
   <a class="md-button md-button--primary" href="how_it_works/">Start Reading</a>
-  <a class="md-button" href="tutorials/blogs/">Try a tutorial</a>
 </div>
 
 ## 🔎 Quick Sections
