@@ -1,68 +1,28 @@
 /*************************************************
- *  csref.dev custom Material theme
- *  Inspired by squidfunk.github.io/mkdocs-material
+ *  csref.dev — Custom tweaks for Material theme
+ *  (keeps default Material header + palette)
  *************************************************/
 
-/* === COLOR PALETTE OVERRIDES === */
-
-/* Dark mode (slate) */
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #0f766e;     /* teal */
-  --md-accent-fg-color:  #84cc16;     /* lime */
-  --md-default-bg-color: #0b0f10;     /* darker background */
-  --md-code-bg-color:    #101414;     /* code blocks */
-  --md-typeset-a-color:  #5eead4;     /* link teal */
-  --md-typeset-color:    rgba(235,255,245,0.92);
-  --md-typeset-table-color: rgba(255,255,255,0.04);
-}
-
-/* Light mode */
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #0f766e;
-  --md-accent-fg-color:  #65a30d;
-  --md-default-bg-color: #ffffff;
-  --md-typeset-a-color:  #0f766e;
-}
-
-/*************************************************
- *  GLOBAL LAYOUT TWEAKS
- *************************************************/
-
+/* Restrict text width for readability */
 :root {
   --md-typeset-max-width: 54rem;
 }
 
-a,
-.md-nav__link {
-  transition: color 0.15s ease, text-shadow 0.15s ease;
-}
-
-a:hover,
-.md-nav__link:hover {
-  text-shadow: 0 0 8px rgba(15, 118, 110, 0.6);
-}
-
-/* Code blocks */
-code, pre code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-}
-
 /*************************************************
- *  HOMEPAGE HERO + BUTTONS
+ *  HERO SECTION
  *************************************************/
-
 .hero {
   margin: 0 0 1.6rem 0;
-  padding: 1.5rem 1.2rem;
+  padding: 1.5rem 1.3rem;
   border-radius: 0.75rem;
   background: var(--md-code-bg-color);
-  border: 1px solid rgba(94, 234, 212, 0.15);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .hero p {
   margin-bottom: 0.8rem;
+  font-size: 1.1rem;
 }
 
 .hero .md-button {
@@ -71,18 +31,19 @@ code, pre code {
 }
 
 .hero .md-button--primary {
-  background-color: var(--md-primary-fg-color);
+  background-color: var(--md-accent-fg-color);
   color: #fff;
   border: none;
 }
 
 .hero .md-button--primary:hover {
-  background-color: #115e59;
+  filter: brightness(0.9);
 }
 
 .hero .md-button {
   border: 1px solid var(--md-accent-fg-color);
   color: var(--md-accent-fg-color);
+  background: transparent;
 }
 
 .hero .md-button:hover {
@@ -91,9 +52,8 @@ code, pre code {
 }
 
 /*************************************************
- *  CARD GRID (homepage sections)
+ *  CARD GRID SECTIONS
  *************************************************/
-
 .grid.cards {
   margin-top: 1.5rem;
 }
@@ -107,38 +67,52 @@ code, pre code {
   padding: 1rem 1.1rem;
   background: var(--md-code-bg-color);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .grid.cards li:hover {
   border-color: var(--md-accent-fg-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/*************************************************
+ *  BACK TO TOP BUTTON
+ *************************************************/
+.md-back-to-top {
+  background-color: var(--md-accent-fg-color);
+  color: #fff !important;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.md-back-to-top:hover {
+  filter: brightness(0.9);
   transform: translateY(-2px);
 }
 
 /*************************************************
- *  FOOTER / BACK TO TOP
+ *  LINKS + HOVER GLOW
  *************************************************/
-
-.md-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+a,
+.md-nav__link {
+  transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
-.md-back-to-top {
-  background-color: var(--md-primary-fg-color);
-  color: #fff !important;
-  border-radius: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.2s ease;
-}
-
-.md-back-to-top:hover {
-  background-color: var(--md-accent-fg-color);
-  color: #000 !important;
+a:hover,
+.md-nav__link:hover {
+  text-shadow: 0 0 6px rgba(129, 140, 248, 0.3); /* soft indigo glow */
 }
 
 /*************************************************
- *  ADMONITIONS + CALLOUTS
+ *  CODE + ADMONITIONS + HEADINGS
  *************************************************/
+code,
+pre code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+}
 
 .admonition {
   border-left-width: 4px;
@@ -162,10 +136,14 @@ code, pre code {
 }
 
 /*************************************************
- *  CONTENT HEADINGS + SPACING
+ *  HEADINGS + SPACING
  *************************************************/
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   scroll-margin-top: 80px;
 }
 
