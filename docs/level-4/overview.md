@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# 3️⃣ Welcome to the Level 4 portal
+# 4️⃣ Welcome to the Level 4 portal
 
 !!! info "Construction Site!"
     Some pages, notes, etc may not be available or complete.  
