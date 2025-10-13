@@ -3,14 +3,11 @@ title: csref.dev
 hide:
   - toc
 ---
-
-# 👋 Welcome to **csref.dev**
-
 > :3
 
 <div class="hero">
-  <h1>BCs (Hons) Computer Science.</h1>
-  <p>Course notes for the BCs (Hons) Computer Science Course @ Leeds Trinity University</p>
+  # 👋 Welcome to **csref.dev**
+  > This site is a collection of lecture notes and lab notes from the BCs (Hons) in Computer Science at Leeds Trinity University.
   <a class="md-button md-button--primary" href="how_it_works/">Start Reading</a>
 </div>
 
