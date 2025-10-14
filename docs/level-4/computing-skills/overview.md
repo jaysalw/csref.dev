@@ -1,4 +1,4 @@
-# COM4043 — Computing Skills
+# zComputing Skills
 
 ## Overview
 An introductory module exploring the foundations of computer science and computational thinking.  
