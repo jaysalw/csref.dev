@@ -37,6 +37,12 @@ theme:
 extra_css:
   - assets/custom.css
 
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - assets/mermaid-init.js
+
 plugins:
   - search
   - git-revision-date-localized:
@@ -47,10 +53,8 @@ plugins:
       repository: jaysalw/csref.dev
       branch: main
       enabled: true
-  - bibtex:
-      bib_file: docs/references.bib      
-      cite_style: ieee                   
-      cited_only: true
+  - minify:
+      minify_html: true
 
 markdown_extensions:
   - admonition
@@ -65,6 +69,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
   - Home: index.md
