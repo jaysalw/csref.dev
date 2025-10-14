@@ -72,8 +72,7 @@ Designed for students with little or no prior programming experience, it builds 
 
 ## Tools and Environment
 - **Language:** Python 3  
-- **Environment:** Jupyter Notebook (via Anaconda Navigator)  
-- **Supporting software:** LTU network and Moodle platform  
+- **Environment:** Jupyter Notebook (via Anaconda Navigator or other method)  
 
 ---
 
