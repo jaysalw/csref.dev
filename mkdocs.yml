@@ -47,6 +47,10 @@ plugins:
       repository: jaysalw/csref.dev
       branch: main
       enabled: true
+  - bibtex:
+      bib_file: docs/references.bib      
+      cite_style: ieee                   
+      cited_only: true
 
 markdown_extensions:
   - admonition
@@ -65,20 +69,20 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Level 3:
-    - Overview: level-3/overview.md
-    - Basic Programming:
-      - Overview: level-3/basic-programming/overview.md
-    - Core Topics:
-      - Overview: level-3/core-topics/overview.md
-    - Using Git:
-      - Overview: level-3/using-git/overview.md
+      - Overview: level-3/overview.md
+      - Basic Programming:
+          - Overview: level-3/basic-programming/overview.md
+      - Core Topics:
+          - Overview: level-3/core-topics/overview.md
+      - Using Git:
+          - Overview: level-3/using-git/overview.md
   - Level 4:
-    - Overview: level-4/overview.md
-    - Computing Skills:
-      - Overview: level-4/computing-skills/overview.md
-    - Software Development:
-      - Overview: level-4/software-development/overview.md
-    - Tech Stack:
-      - Overview: level-4/tech-stack/overview.md
-    - User Experience:
-      - Overview: level-4/user-experience/overview.md
+      - Overview: level-4/overview.md
+      - Computing Skills:
+          - Overview: level-4/computing-skills/overview.md
+      - Software Development:
+          - Overview: level-4/software-development/overview.md
+      - Tech Stack:
+          - Overview: level-4/tech-stack/overview.md
+      - User Experience:
+          - Overview: level-4/user-experience/overview.md
