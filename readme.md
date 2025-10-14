@@ -138,6 +138,7 @@ When contributing:
 3. Keep notes concise and focused on key learning outcomes.
 4. Use clear Markdown headings and consistent formatting.
 
+Any PR which does not meet these requirements, nor follow the outlined contribution processes will be denied until fixed.
 ---
 
 ## 🧭 Example Workflow
