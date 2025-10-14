@@ -1,4 +1,4 @@
-# zComputing Skills
+# Computing Skills
 
 ## Overview
 An introductory module exploring the foundations of computer science and computational thinking.  
