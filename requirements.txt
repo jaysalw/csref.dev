@@ -8,3 +8,6 @@ mkdocs-bibtex>=2.14
 mkdocs-git-revision-date-localized-plugin>=1.2
 mkdocs-git-committers-plugin-2>=2.5
 mkdocs-minify-plugin>=0.3.0
+
+# Optional but recommended for diagrams/math
+mkdocs-mermaid2-plugin>=0.6.0
