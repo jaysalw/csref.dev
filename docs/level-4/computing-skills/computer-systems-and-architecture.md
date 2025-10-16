@@ -1,282 +1,294 @@
 ---
-title: Computer Systems and Architecture
-description: Detailed overview of computer architecture, CPU design, instruction cycle, and performance analysis.
+title: Computer Architectures: Von Neumann, Harvard, RISC, CISC, ARM, x86, MIPS, RISC‑V
+description: Extended notes on classic and modern computer architectures with diagrams, instruction-set styles, pipelines, and performance metrics.
 ---
 
-# Computer Systems and Architecture
+# Computer Architectures
 
-Computer systems are built on a layered architecture that enables efficient data processing, storage, and control.  
-This section explores the **fundamentals of computer architecture**, focusing on system organization, CPU design, instruction cycles, and performance metrics.
+This document surveys widely taught computer architectures used across computer science curricula and industry.  
+It is designed for MkDocs Material with Mermaid.js and MathJax support.
 
-## The Von Neumann Model
+---
 
-The **Von Neumann architecture**, proposed by John von Neumann in 1945, describes a digital computing system in which **data and instructions share the same memory**.
+## 1. System-Level Reference Models
 
-### Characteristics
-
-- Single memory space for data and program instructions.  
-- Sequential execution of instructions (Fetch → Decode → Execute).  
-- Control Unit (CU) manages instruction flow.  
-- Arithmetic Logic Unit (ALU) performs computations.
-
-```mermaid
-graph TD
-  subgraph "Von Neumann Architecture"
-    CPU[CPU]
-    CU[Control Unit]
-    ALU[Arithmetic Logic Unit]
-    MEM[Main Memory]
-    I_O[I/O Devices]
-    BUS[System Bus]
-  end
-
-  CPU --> MEM
-  MEM --> CPU
-  CPU --> I_O
-  I_O --> CPU
-  CPU --> BUS
-  BUS --> MEM
-```
-
-## Harvard Architecture
-
-Unlike Von Neumann, the **Harvard architecture** separates memory for **instructions** and **data**, enabling simultaneous access.
-
-### Comparison
-
-| Feature | Von Neumann | Harvard |
-|----------|--------------|----------|
-| Memory | Shared for data and instructions | Separate for data and instructions |
-| Speed | Slower (bus bottleneck) | Faster (parallel access) |
-| Example Use | General-purpose computers | Microcontrollers, DSPs |
-
-```mermaid
-graph LR
-  subgraph Harvard_Architecture
-    CU[Control Unit]
-    ALU[Arithmetic Logic Unit]
-    IMEM["Instruction Memory"]
-    DMEM["Data Memory"]
-    I_O[I/O Devices]
-  end
-
-  CU --> IMEM
-  CU --> DMEM
-  ALU --> DMEM
-  DMEM --> ALU
-  CU --> I_O
-```
-
-## Central Processing Unit (CPU)
-
-The CPU is the **brain of the computer**, executing instructions through coordinated control and arithmetic operations.
-
-### Key Components
-
-| Component | Function |
-|------------|-----------|
-| ALU (Arithmetic Logic Unit) | Performs arithmetic and logical operations |
-| CU (Control Unit) | Decodes and coordinates execution of instructions |
-| Registers | High-speed storage for temporary data and addresses |
-| System Bus | Communication pathway between CPU, memory, and I/O |
-| Clock | Synchronizes all CPU operations |
-
-```mermaid
-graph TB
-  subgraph CPU
-    CU[Control Unit]
-    ALU[Arithmetic Logic Unit]
-    REG[Registers]
-    CLK[Clock]
-  end
-  CU --> ALU
-  CU --> REG
-  REG --> ALU
-  ALU --> REG
-  CU --> CLK
-```
-
-## Instruction Cycle
-
-The **Instruction Cycle** describes how the CPU processes an instruction, typically through four main stages.
-
-### Steps
-
-1. **Fetch:** Retrieve the instruction from memory.  
-2. **Decode:** Interpret the opcode and operands.  
-3. **Execute:** Perform the operation via ALU or control logic.  
-4. **Store:** Write results back to memory or registers.
+### 1.1 Von Neumann (shared program/data memory)
 
 ```mermaid
 flowchart LR
-  F[Fetch] --> D[Decode] --> E[Execute] --> S[Store] --> F
+  classDef cpu fill:#1e3a8a,stroke:#0b2a6b,stroke-width:2,color:#fff;
+  classDef mem fill:#065f46,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
+  classDef bus fill:#111827,stroke:#9ca3af,stroke-width:2,color:#e5e7eb;
+  classDef io  fill:#6b7280,stroke:#4b5563,stroke-width:1.5,color:#fff;
+
+  subgraph CPU["CPU (CU + ALU + Registers)"]
+  end
+  MEM["Main Memory (code + data)"]:::mem
+  ABUS["Address Bus"]:::bus
+  DBUS["Data Bus"]:::bus
+  CBUS["Control Bus"]:::bus
+  IOI["Input Devices"]:::io
+  IOO["Output Devices"]:::io
+
+  CPU --- ABUS --- MEM
+  CPU === DBUS === MEM
+  CPU -.-> CBUS -.-> MEM
+  IOI --> CPU
+  CPU --> IOO
 ```
 
-Each instruction requires multiple **clock cycles**, and performance depends on the efficiency of these stages.
-
-## Memory Hierarchy
-
-Memory systems balance speed, size, and cost through a **hierarchical organization**.
-
-| Level | Type | Speed | Capacity | Example |
-|--------|------|--------|-----------|----------|
-| L1 | CPU Registers | Fastest | Smallest | Program Counter |
-| L2 | Cache Memory | Very Fast | Small | SRAM |
-| L3 | Main Memory | Medium | Moderate | DRAM |
-| L4 | Secondary Storage | Slow | Large | SSD / HDD |
-| L5 | Tertiary Storage | Slowest | Very Large | Tape, Cloud |
+### 1.2 Harvard (split instruction/data memory)
 
 ```mermaid
-graph TD
-  R[Registers] --> C1[L1 Cache] --> C2[L2 Cache] --> M[Main Memory] --> S[Secondary Storage] --> T[Tertiary Storage]
+flowchart LR
+  classDef cpu fill:#1e3a8a,stroke:#0b2a6b,stroke-width:2,color:#fff;
+  classDef memI fill:#14532d,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
+  classDef memD fill:#0e7490,stroke:#155e75,stroke-width:2,color:#ecfeff;
+  classDef busI fill:#0b1325,stroke:#34d399,stroke-width:2,color:#d1fae5;
+  classDef busD fill:#0b1325,stroke:#60a5fa,stroke-width:2,color:#dbeafe;
+
+  subgraph CPU["CPU (CU + ALU + RegFile)"]
+  end
+  IMEM["Instruction Memory"]:::memI
+  DMEM["Data Memory"]:::memD
+  IBUS["Instruction Bus"]:::busI
+  DBUS["Data Bus"]:::busD
+
+  CPU --- IBUS --- IMEM
+  CPU === DBUS === DMEM
 ```
 
-The **principle of locality** (temporal and spatial) drives cache design — recently used data is likely to be reused soon.
+---
 
-## Buses and Communication
+## 2. Instruction-Set Styles (RISC vs CISC)
 
-Data flow between components is facilitated by **system buses**:
+| Property | RISC (Reduced Instruction Set Computer) | CISC (Complex Instruction Set Computer) |
+|---|---|---|
+| Instruction length | Fixed (e.g., 32-bit) | Variable (1–15 bytes typical on x86) |
+| Addressing modes | Few | Many |
+| Microarchitecture | Load/Store, many registers | Microcoded, memory-to-memory allowed |
+| Pipeline | Simple, deep, uniform | Complex, variable latency |
+| Examples | ARM, MIPS, RISC‑V, SPARC, Power | x86/x86‑64, VAX, 68000 |
+| Design goals | High clock rates, easy pipelining, low power | Code density, rich instructions, backward compatibility |
 
-| Bus Type | Function |
-|-----------|-----------|
-| Data Bus | Carries data between CPU and memory |
-| Address Bus | Specifies memory location for data transfer |
-| Control Bus | Carries control signals (e.g., read/write, interrupt) |
+### 2.1 Abstract RISC datapath (load/store)
 
 ```mermaid
-graph LR
-  CPU -->|Address Bus| MEM
-  CPU -->|Data Bus| MEM
-  CPU -->|Control Bus| MEM
+flowchart TB
+  classDef cu  fill:#1e3a8a,stroke:#0b2a6b,stroke-width:2,color:#fff;
+  classDef alu fill:#7c2d12,stroke:#4a1d0a,stroke-width:2,color:#fff;
+  classDef rf  fill:#334155,stroke:#1f2937,stroke-width:1.5,color:#e5e7eb;
+  classDef bus fill:#111827,stroke:#9ca3af,stroke-width:2,color:#e5e7eb;
+  classDef mem fill:#065f46,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
+
+  CU[Control Unit]:::cu
+  RF[Register File]:::rf
+  ALU[ALU]:::alu
+  DMEM[Data Memory]:::mem
+  ABus["A Bus"]:::bus
+  BBus["B Bus"]:::bus
+  RBus["Result Bus"]:::bus
+
+  RF -- read --> ABus
+  RF -- read --> BBus
+  ABus ==> ALU
+  BBus ==> ALU
+  ALU ==> RBus
+  RBus --> RF
+  ALU -.addr.-> DMEM
+  DMEM -.load/store.-> RF
+  CU -.controls.-> RF
+  CU -.controls.-> ALU
+  CU -.controls.-> DMEM
 ```
 
-## Machine Instructions and Assembly
-
-Each CPU supports a specific **Instruction Set Architecture (ISA)** — defining valid operations and binary encodings.
-
-### Example (Simplified)
-
-| Assembly | Operation | Binary Example |
-|-----------|------------|----------------|
-| `LOAD A, 1001` | Load value from memory address 1001 | 0001 1001 |
-| `ADD A, B` | Add contents of registers A and B | 0010 0001 |
-| `STORE A, 1010` | Store register A into memory | 0011 1010 |
+### 2.2 Abstract CISC execution with microcode
 
 ```mermaid
-graph TD
-  MEM[Memory] --> CU
+flowchart TB
+  classDef block fill:#0f172a,stroke:#334155,stroke-width:1.5,color:#e5e7eb;
+
+  IR[Instruction Register]:::block
+  DECODE[Complex Decoder]:::block
+  MICRO[Microcode ROM]:::block
+  EU[Execution Unit (ALU, AGU, FP)]:::block
+  MEM[Memory Interface]:::block
+
+  IR --> DECODE --> MICRO --> EU --> MEM
+  MICRO --> MEM
+```
+
+---
+
+## 3. Representative Architectures
+
+### 3.1 ARM (AArch32/AArch64, RISC)
+
+- Load/store design, fixed-length instructions (AArch32: mostly 32-bit; AArch64: 32-bit).  
+- Large register file; predication and conditional execution (Thumb/Thumb-2 compressed encodings for density).  
+- Widely used in mobile/embedded; increasingly in servers.
+
+```mermaid
+flowchart LR
+  classDef core fill:#1e3a8a,stroke:#0b2a6b,stroke-width:2,color:#fff;
+  classDef cache fill:#0f766e,stroke:#115e59,stroke-width:2,color:#ecfdf5;
+  classDef mem fill:#14532d,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
+  classDef bus fill:#111827,stroke:#9ca3af,stroke-width:2,color:#e5e7eb;
+
+  subgraph ARM_Core["ARM Core (AArch64)"]
+    RF[31 GP Registers + SP]:::core
+    ALU[ALU/NEON/FP]:::core
+    CU[Decode + Rename + Schedulers]:::core
+  end
+  L1I["L1 I$"]:::cache
+  L1D["L1 D$"]:::cache
+  L2["L2$"]:::cache
+  L3["L3$ (shared)"]:::cache
+  MEM["DRAM"]:::mem
+
+  RF --> ALU
   CU --> ALU
-  ALU --> REG[Registers]
-  REG --> MEM
+  ARM_Core --- L1I
+  ARM_Core --- L1D
+  L1I --> L2 --> L3 --> MEM
+  L1D --> L2
 ```
 
-## Pipelining
+### 3.2 x86/x86‑64 (CISC ISA with RISC-like core)
 
-**Instruction pipelining** improves CPU throughput by overlapping execution phases of multiple instructions.
+- Variable-length instructions; front-end decodes to micro‑ops.  
+- Out‑of‑order execution, register renaming, deep pipelines, sophisticated branch predictors.  
+- Wide SIMD (SSE/AVX/AVX‑512).
 
-| Stage | Function |
-|--------|-----------|
-| IF | Instruction Fetch |
-| ID | Instruction Decode |
-| EX | Execute |
-| MEM | Memory Access |
-| WB | Write Back |
+```mermaid
+flowchart LR
+  classDef f  fill:#1e293b,stroke:#0b2a6b,stroke-width:2,color:#e5e7eb;
+  classDef e  fill:#7c2d12,stroke:#4a1d0a,stroke-width:2,color:#fff;
+  classDef c  fill:#0f766e,stroke:#115e59,stroke-width:2,color:#ecfdf5;
+
+  FE[Front-End<br/>Fetch + Decode + µop Cache]:::f
+  REN[Rename + Reorder Buffer]:::f
+  SCH[Schedulers / Issue Queues]:::f
+  INT[Integer ALUs]:::e
+  AGU[Address Gen Units]:::e
+  FP[Vector/FP Units]:::e
+  L1I[L1 I$]:::c
+  L1D[L1 D$]:::c
+
+  L1I --> FE --> REN --> SCH
+  SCH --> INT
+  SCH --> AGU
+  SCH --> FP
+  L1D --> AGU
+```
+
+### 3.3 MIPS (classic RISC)
+
+- Fixed 32‑bit instructions, three‑operand format, simple 5‑stage pipeline.  
+- Clean educational ISA; influenced many later designs.
+
+```mermaid
+flowchart LR
+  IF[IF] --> ID[ID] --> EX[EX] --> MEM[MEM] --> WB[WB]
+```
+
+### 3.4 RISC‑V (open RISC ISA)
+
+- Modular ISA: small base (RV32I/RV64I) + standard extensions (M, A, F, D, C, V).  
+- Open and royalty-free; strong adoption in research/industry.  
+
+```mermaid
+flowchart TB
+  BASE["Base RV64I"] --> M["M: Integer Mul/Div"]
+  BASE --> A["A: Atomics"]
+  BASE --> F["F: Single-precision FP"]
+  BASE --> D["D: Double-precision FP"]
+  BASE --> C["C: Compressed 16-bit"]
+  BASE --> V["V: Vector"]
+```
+
+---
+
+## 4. Pipeline and Hazards
+
+### 4.1 Five-stage pipeline
 
 ```mermaid
 gantt
-    dateFormat  X
-    title CPU Instruction Pipeline
-    section Stages
-    IF :active, 0, 1
-    ID : 1, 2
-    EX : 2, 3
-    MEM : 3, 4
-    WB : 4, 5
+  dateFormat X
+  title 5-Stage Pipeline
+  axisFormat %L
+  section Stages
+  IF :active, 0, 1
+  ID : 1, 1
+  EX : 2, 1
+  MEM: 3, 1
+  WB : 4, 1
+  section Instruction flow
+  I1  : 0, 5
+  I2  : 1, 5
+  I3  : 2, 5
+  I4  : 3, 5
 ```
 
-Each instruction enters a different pipeline stage every clock cycle, increasing parallelism.
+**Hazards**: structural (resource conflict), data (RAW/WAR/WAW), and control (branches).  
+Mitigations: forwarding/bypassing, scoreboarding, branch prediction.
 
-## CPU Performance Metrics
+---
 
-Performance can be expressed using **cycles per instruction (CPI)** and **clock frequency**.
+## 5. Caches and Memory Hierarchy
 
-$$
-\text{Execution Time} = \frac{\text{Instructions}}{\text{Program}} \times \text{CPI} \times \text{Clock Cycle Time}
-$$
-
-Alternatively:
+Average Memory Access Time (AMAT):
 
 $$
-\text{MIPS} = \frac{\text{Clock Frequency (Hz)}}{\text{CPI} \times 10^6}
+\mathrm{AMAT} = \text{Hit Time} + (\text{Miss Rate} \times \text{Miss Penalty})
 $$
-
-### Example
-
-A processor with 2 GHz clock and average CPI = 1.5 executing 1 billion instructions:
-
-$$
-\text{Execution Time} = 10^9 \times 1.5 \times (0.5 \times 10^{-9}) = 0.75 \text{ seconds}
-$$
-
-## Cache Performance
-
-Cache efficiency is measured via **Average Memory Access Time (AMAT)**:
-
-$$
-\text{AMAT} = \text{Hit Time} + (\text{Miss Rate} \times \text{Miss Penalty})
-$$
-
-- **Hit Time:** Time to access data in cache.  
-- **Miss Rate:** Fraction of memory accesses not found in cache.  
-- **Miss Penalty:** Time to fetch data from main memory.
-
-Improving cache size and associativity reduces miss rate but increases cost and power consumption.
-
-## Modern CPU Design
-
-Modern CPUs include multiple cores, speculative execution, and branch prediction.
 
 ```mermaid
-graph TB
-  subgraph Multi-Core_CPU
-    CORE1[Core 1]
-    CORE2[Core 2]
-    L1C[L1 Cache]
-    L2C[L2 Cache]
-    L3C[L3 Shared Cache]
-    MEM[Main Memory]
-  end
-
-  CORE1 --> L1C
-  CORE2 --> L1C
-  L1C --> L2C
-  L2C --> L3C
-  L3C --> MEM
+flowchart TB
+  REG[Registers] --> L1[L1 Cache] --> L2[L2 Cache] --> L3[L3 Cache] --> MEM[DRAM] --> SSD[SSD] --> HDD[HDD/Tape]
 ```
 
-### Branch Prediction Example
+---
 
-Predicts the outcome of conditional branches before execution to minimize pipeline stalls.
+## 6. Performance Metrics
+
+Execution time, CPI, and MIPS:
 
 $$
-\text{Prediction Accuracy} = \frac{\text{Correct Predictions}}{\text{Total Branches}} \times 100\%
+\text{ExecTime} = \#\text{Instr} \times \text{CPI} \times \text{CycleTime}
 $$
 
-## Summary
+$$
+\text{MIPS} = \frac{\text{Clock (Hz)}}{\text{CPI} \times 10^6}
+$$
 
-- The **CPU** coordinates instruction processing through ALU, CU, and registers.  
-- The **Von Neumann model** introduced stored-program architecture.  
-- **Harvard architecture** separates instruction and data paths for speed.  
-- **Pipelining** and **cache hierarchies** maximize parallelism and efficiency.  
-- Performance metrics such as **CPI**, **MIPS**, and **AMAT** quantify design trade-offs.  
-- Modern systems integrate **multi-core**, **speculative**, and **out-of-order** execution.
+Pipeline ideal speedup (ignoring hazards):
 
-## References
+$$
+S \approx \text{# of pipeline stages}
+$$
+
+---
+
+## 7. Quick Comparison Table
+
+| ISA | Style | Encoding | Typical Pipeline | Notes |
+|---|---|---|---|---|
+| ARM (AArch64) | RISC | Fixed 32-bit (plus 16-bit Thumb/Thumb‑2 in 32-bit mode) | Deep, OoO in high-end cores | Mobile to server; low power |
+| x86‑64 | CISC (µops internally) | Variable (1–15 bytes) | Very deep, OoO, heavy front‑end | Backward compatibility; large ecosystem |
+| MIPS | RISC | Fixed 32-bit | 5-stage classic | Education/legacy embedded |
+| RISC‑V | RISC | Fixed base + modular extensions | 5‑stage to wide OoO | Open ISA, rapidly growing |
+
+---
+
+## 8. References
 
 - Patterson, D. A., & Hennessy, J. L. (2021). *Computer Organization and Design: The Hardware/Software Interface* (6th ed.). Morgan Kaufmann.  
+- Hennessy, J. L., & Patterson, D. A. (2019). *Computer Architecture: A Quantitative Approach* (6th ed.). Morgan Kaufmann.  
 - Stallings, W. (2019). *Computer Organization and Architecture* (11th ed.). Pearson.  
 - Tanenbaum, A. S., & Austin, T. (2013). *Structured Computer Organization* (6th ed.). Pearson.  
-- Mano, M. M., & Ciletti, M. D. (2017). *Digital Design* (6th ed.). Pearson.  
-- University of Cambridge — Computer Laboratory. *Computer Architecture Course Notes.*  
-- IEEE Computer Society. (2019). *IEEE Standard for Microprocessor Systems.*  
-- NIST. (2020). *Digital System Architecture Guidelines.*  
+- ARM Ltd. *Arm® Architecture Reference Manual (A-profile)*.  
+- Intel. *Intel® 64 and IA‑32 Architectures Software Developer’s Manual*.  
+- MIPS Open. *MIPS32® Architecture for Programmers*.  
+- RISC‑V Foundation. *The RISC‑V Instruction Set Manual*.
