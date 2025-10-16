@@ -135,27 +135,15 @@ Example:
 101_2 \times 110_2
 \]
 
-```
-
-```
-  101
-```
-
-## ×     110
-
-```
-  000
-```
-
-* 1010
-* 10100
-
----
-
-```
-11110₂
-```
-
+```text
+      101
+×     110
+-----------
+      000
++    1010
++   10100
+-----------
+    11110₂
 ```
 
 \[
@@ -258,5 +246,12 @@ For question 5:
 
 ### References
 
-- [Wikipedia: Positional Notation](https://en.wikipedia.org/wiki/Positional_notation)  
-- [Wikipedia: Binary Arithmetic](https://en.wikipedia.org/wiki/Binary_number)
+- Patterson, D. A., & Hennessy, J. L. (2021). *Computer Organization and Design: The Hardware/Software Interface* (6th ed.). Morgan Kaufmann.  
+- Stallings, W. (2019). *Computer Organization and Architecture* (11th ed.). Pearson Education.  
+- Mano, M. M., & Ciletti, M. D. (2017). *Digital Design* (6th ed.). Pearson.  
+- IEEE Computer Society. (2019). *IEEE Standard for Floating-Point Arithmetic (IEEE 754-2019)*.  
+- University of Cambridge — Computer Laboratory. [*Binary Arithmetic and Number Systems*](https://www.cl.cam.ac.uk/teaching/).  
+- NIST Digital Library of Mathematical Functions. [*Number Representation in Computing Systems*](https://dlmf.nist.gov/).  
+- TutorialsPoint. [*Binary Arithmetic – Addition, Subtraction, Multiplication, Division*](https://www.tutorialspoint.com/computer_logical_organization/binary_arithmetic.htm).  
+- GeeksforGeeks. [*Binary Number System – Introduction and Operations*](https://www.geeksforgeeks.org/binary-number-system/).  
+
