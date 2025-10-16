@@ -1,12 +1,12 @@
 ---
-title: Computer Architectures: Von Neumann, Harvard, RISC, CISC, ARM, x86, MIPS, RISC‑V
-description: Extended notes on classic and modern computer architectures with diagrams, instruction-set styles, pipelines, and performance metrics.
+title: Computer Architectures (Extended)
+description: Comparative notes with diagrams for Von Neumann, Harvard, RISC, CISC, ARM, x86, MIPS, RISC‑V, SPARC, PowerPC, Itanium (IA‑64), GPU/SIMD, and DSP architectures.
 ---
 
-# Computer Architectures
+# Computer Architectures (Extended)
 
-This document surveys widely taught computer architectures used across computer science curricula and industry.  
-It is designed for MkDocs Material with Mermaid.js and MathJax support.
+This reference surveys classical and modern computer architectures used in computer science and industry.  
+All diagrams are **Mermaid** and equations render via **MathJax**.
 
 ---
 
@@ -125,15 +125,14 @@ flowchart TB
 ### 3.1 ARM (AArch32/AArch64, RISC)
 
 - Load/store design, fixed-length instructions (AArch32: mostly 32-bit; AArch64: 32-bit).  
-- Large register file; predication and conditional execution (Thumb/Thumb-2 compressed encodings for density).  
-- Widely used in mobile/embedded; increasingly in servers.
+- Large register file; optional predication; Thumb/Thumb-2 for code density.  
+- Used from embedded to servers.
 
 ```mermaid
 flowchart LR
   classDef core fill:#1e3a8a,stroke:#0b2a6b,stroke-width:2,color:#fff;
   classDef cache fill:#0f766e,stroke:#115e59,stroke-width:2,color:#ecfdf5;
   classDef mem fill:#14532d,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
-  classDef bus fill:#111827,stroke:#9ca3af,stroke-width:2,color:#e5e7eb;
 
   subgraph ARM_Core["ARM Core (AArch64)"]
     RF[31 GP Registers + SP]:::core
@@ -146,8 +145,6 @@ flowchart LR
   L3["L3$ (shared)"]:::cache
   MEM["DRAM"]:::mem
 
-  RF --> ALU
-  CU --> ALU
   ARM_Core --- L1I
   ARM_Core --- L1D
   L1I --> L2 --> L3 --> MEM
@@ -156,9 +153,8 @@ flowchart LR
 
 ### 3.2 x86/x86‑64 (CISC ISA with RISC-like core)
 
-- Variable-length instructions; front-end decodes to micro‑ops.  
-- Out‑of‑order execution, register renaming, deep pipelines, sophisticated branch predictors.  
-- Wide SIMD (SSE/AVX/AVX‑512).
+- Variable-length instructions decoded into micro‑ops, then scheduled to execution units.  
+- Out‑of‑order execution, register renaming, deep pipelines; SIMD (SSE/AVX/AVX‑512).
 
 ```mermaid
 flowchart LR
@@ -184,18 +180,12 @@ flowchart LR
 
 ### 3.3 MIPS (classic RISC)
 
-- Fixed 32‑bit instructions, three‑operand format, simple 5‑stage pipeline.  
-- Clean educational ISA; influenced many later designs.
-
 ```mermaid
 flowchart LR
   IF[IF] --> ID[ID] --> EX[EX] --> MEM[MEM] --> WB[WB]
 ```
 
 ### 3.4 RISC‑V (open RISC ISA)
-
-- Modular ISA: small base (RV32I/RV64I) + standard extensions (M, A, F, D, C, V).  
-- Open and royalty-free; strong adoption in research/industry.  
 
 ```mermaid
 flowchart TB
@@ -207,11 +197,86 @@ flowchart TB
   BASE --> V["V: Vector"]
 ```
 
+### 3.5 SPARC (Scalable Processor ARChitecture, RISC)
+
+- Windowed register file reduces procedure call overhead.  
+- 32 registers visible at a time; windows overlap across calls.
+
+```mermaid
+flowchart TB
+  classDef rf fill:#334155,stroke:#1f2937,stroke-width:1.5,color:#e5e7eb;
+  R0["Register Window n"]:::rf
+  R1["Register Window n+1"]:::rf
+  R2["Register Window n+2"]:::rf
+  R0 --- R1 --- R2
+  subgraph Visible
+    V["Out (n) ↔ In (n+1) overlap"]
+  end
+```
+
+### 3.6 Power/PowerPC (RISC)
+
+- Fixed-length encodings; separate integer and FP register files; strong IBM server lineage.
+
+```mermaid
+flowchart LR
+  GPR[32 GPRs] --> ALU[Int ALUs]
+  FPR[32 FPRs] --> FPU[FP/Vector]
+  ALU --> LSU[Load/Store Unit]
+  FPU --> LSU
+```
+
+### 3.7 Itanium IA‑64 (EPIC / VLIW‑like)
+
+- Explicitly Parallel Instruction Computing: compiler bundles independent ops; predication & rotating registers.  
+- Long instruction words issue to multiple functional units in parallel.
+
+```mermaid
+flowchart TB
+  BUNDLE["Instruction Bundle (slots)"] --> IU1[Int Unit 1]
+  BUNDLE --> IU2[Int Unit 2]
+  BUNDLE --> FPU1[FP Unit]
+  BUNDLE --> MEMU[Mem Unit]
+```
+
+### 3.8 GPU / SIMD / SIMT
+
+- Thousands of lightweight threads; warps/wavefronts execute in lockstep (SIMT).  
+- Wide vector ALUs, high memory bandwidth, latency hiding by oversubscription.
+
+```mermaid
+flowchart TB
+  classDef sm fill:#1e3a8a,stroke:#0b2a6b,stroke-width:2,color:#fff;
+  classDef cache fill:#0f766e,stroke:#115e59,stroke-width:2,color:#ecfdf5;
+  classDef mem fill:#14532d,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
+
+  subgraph GPU
+    SM1["SM/Compute Unit #1"]:::sm
+    SM2["SM/Compute Unit #2"]:::sm
+    SM3["SM/Compute Unit #3"]:::sm
+    L2["L2$ (shared)"]:::cache
+  end
+  GDDR["Device Memory (GDDR)"]:::mem
+  SM1 --> L2 --> GDDR
+  SM2 --> L2
+  SM3 --> L2
+```
+
+### 3.9 DSP Harvard Variants
+
+- Strict Harvard with separate program/data memories, specialized **MAC (multiply–accumulate)** units, circular buffers.
+
+```mermaid
+flowchart LR
+  IMEM["Program Memory"] --> CU[Program Sequencer]
+  DMEM["Data Memory"] --> MAC[MAC/ALU]
+  CU --> MAC
+  MAC --> DMEM
+```
+
 ---
 
 ## 4. Pipeline and Hazards
-
-### 4.1 Five-stage pipeline
 
 ```mermaid
 gantt
@@ -271,24 +336,16 @@ $$
 
 ---
 
-## 7. Quick Comparison Table
-
-| ISA | Style | Encoding | Typical Pipeline | Notes |
-|---|---|---|---|---|
-| ARM (AArch64) | RISC | Fixed 32-bit (plus 16-bit Thumb/Thumb‑2 in 32-bit mode) | Deep, OoO in high-end cores | Mobile to server; low power |
-| x86‑64 | CISC (µops internally) | Variable (1–15 bytes) | Very deep, OoO, heavy front‑end | Backward compatibility; large ecosystem |
-| MIPS | RISC | Fixed 32-bit | 5-stage classic | Education/legacy embedded |
-| RISC‑V | RISC | Fixed base + modular extensions | 5‑stage to wide OoO | Open ISA, rapidly growing |
-
----
-
-## 8. References
+## 7. References
 
 - Patterson, D. A., & Hennessy, J. L. (2021). *Computer Organization and Design: The Hardware/Software Interface* (6th ed.). Morgan Kaufmann.  
 - Hennessy, J. L., & Patterson, D. A. (2019). *Computer Architecture: A Quantitative Approach* (6th ed.). Morgan Kaufmann.  
 - Stallings, W. (2019). *Computer Organization and Architecture* (11th ed.). Pearson.  
 - Tanenbaum, A. S., & Austin, T. (2013). *Structured Computer Organization* (6th ed.). Pearson.  
-- ARM Ltd. *Arm® Architecture Reference Manual (A-profile)*.  
-- Intel. *Intel® 64 and IA‑32 Architectures Software Developer’s Manual*.  
-- MIPS Open. *MIPS32® Architecture for Programmers*.  
-- RISC‑V Foundation. *The RISC‑V Instruction Set Manual*.
+- ARM Ltd. *Arm® Architecture Reference Manual (A-profile).*  
+- Intel. *Intel® 64 and IA‑32 Architectures Software Developer’s Manual.*  
+- MIPS Open. *MIPS32® Architecture for Programmers.*  
+- RISC‑V International. *The RISC‑V Instruction Set Manual.*  
+- Oracle. *SPARC Architecture Manual.*  
+- IBM. *Power ISA.*  
+- Intel/HP. *IA‑64 Architecture Software Developer’s Manual.*
