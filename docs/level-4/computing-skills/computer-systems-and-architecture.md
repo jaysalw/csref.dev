@@ -8,8 +8,6 @@ description: Detailed overview of computer architecture, CPU design, instruction
 Computer systems are built on a layered architecture that enables efficient data processing, storage, and control.  
 This section explores the **fundamentals of computer architecture**, focusing on system organization, CPU design, instruction cycles, and performance metrics.
 
----
-
 ## The Von Neumann Model
 
 The **Von Neumann architecture**, proposed by John von Neumann in 1945, describes a digital computing system in which **data and instructions share the same memory**.
@@ -40,8 +38,6 @@ graph TD
   BUS --> MEM
 ```
 
----
-
 ## Harvard Architecture
 
 Unlike Von Neumann, the **Harvard architecture** separates memory for **instructions** and **data**, enabling simultaneous access.
@@ -70,8 +66,6 @@ graph LR
   DMEM --> ALU
   CU --> I_O
 ```
-
----
 
 ## Central Processing Unit (CPU)
 
@@ -102,8 +96,6 @@ graph TB
   CU --> CLK
 ```
 
----
-
 ## Instruction Cycle
 
 The **Instruction Cycle** describes how the CPU processes an instruction, typically through four main stages.
@@ -121,8 +113,6 @@ flowchart LR
 ```
 
 Each instruction requires multiple **clock cycles**, and performance depends on the efficiency of these stages.
-
----
 
 ## Memory Hierarchy
 
@@ -143,8 +133,6 @@ graph TD
 
 The **principle of locality** (temporal and spatial) drives cache design — recently used data is likely to be reused soon.
 
----
-
 ## Buses and Communication
 
 Data flow between components is facilitated by **system buses**:
@@ -161,8 +149,6 @@ graph LR
   CPU -->|Data Bus| MEM
   CPU -->|Control Bus| MEM
 ```
-
----
 
 ## Machine Instructions and Assembly
 
@@ -183,8 +169,6 @@ graph TD
   ALU --> REG[Registers]
   REG --> MEM
 ```
-
----
 
 ## Pipelining
 
@@ -212,8 +196,6 @@ gantt
 
 Each instruction enters a different pipeline stage every clock cycle, increasing parallelism.
 
----
-
 ## CPU Performance Metrics
 
 Performance can be expressed using **cycles per instruction (CPI)** and **clock frequency**.
@@ -236,8 +218,6 @@ $$
 \text{Execution Time} = 10^9 \times 1.5 \times (0.5 \times 10^{-9}) = 0.75 \text{ seconds}
 $$
 
----
-
 ## Cache Performance
 
 Cache efficiency is measured via **Average Memory Access Time (AMAT)**:
@@ -251,8 +231,6 @@ $$
 - **Miss Penalty:** Time to fetch data from main memory.
 
 Improving cache size and associativity reduces miss rate but increases cost and power consumption.
-
----
 
 ## Modern CPU Design
 
@@ -284,8 +262,6 @@ $$
 \text{Prediction Accuracy} = \frac{\text{Correct Predictions}}{\text{Total Branches}} \times 100\%
 $$
 
----
-
 ## Summary
 
 - The **CPU** coordinates instruction processing through ALU, CU, and registers.  
@@ -294,8 +270,6 @@ $$
 - **Pipelining** and **cache hierarchies** maximize parallelism and efficiency.  
 - Performance metrics such as **CPI**, **MIPS**, and **AMAT** quantify design trade-offs.  
 - Modern systems integrate **multi-core**, **speculative**, and **out-of-order** execution.
-
----
 
 ## References
 
