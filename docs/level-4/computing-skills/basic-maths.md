@@ -131,11 +131,13 @@ Similar to long multiplication in decimal.
 
 Example:
 
+Example:
+
 \[
 101_2 \times 110_2
 \]
 
-```text
+<pre><code>
       101
 ×     110
 -----------
@@ -144,7 +146,7 @@ Example:
 +   10100
 -----------
     11110₂
-```
+</code></pre>
 
 \[
 11110_2 = 30_{10}
