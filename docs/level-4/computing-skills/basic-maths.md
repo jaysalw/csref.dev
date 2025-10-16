@@ -8,16 +8,14 @@ description: Comprehensive notes on number systems, binary arithmetic, and data 
 Computers represent and process information using the **binary number system**, which contains only two digits: `0` and `1`.  
 This section explains how different number systems work, how conversions between them are performed, and how arithmetic operates in binary form.
 
----
-
 ## Number Systems
 
 A **number system** defines how digits represent values using a specific base (radix).  
 Each position represents a power of the base.
 
-\[
+$$
 N = d_n \times b^n + d_{n-1} \times b^{n-1} + \dots + d_0 \times b^0
-\]
+$$
 
 | Base | System | Digits Used | Example | Common Use |
 |------|---------|--------------|----------|-------------|
@@ -26,13 +24,11 @@ N = d_n \times b^n + d_{n-1} \times b^{n-1} + \dots + d_0 \times b^0
 | 10 | Decimal | 0–9 | 37₁₀ | Everyday arithmetic |
 | 16 | Hexadecimal | 0–9, A–F | 2AF₁₆ | Memory addressing, machine code |
 
----
-
 ### Positional Weighting
 
 ```mermaid
 graph LR
-  subgraph Binary Representation
+  subgraph Binary_Representation
   B1["1 × 2⁵ = 32"]
   B2["0 × 2⁴ = 0"]
   B3["1 × 2³ = 8"]
@@ -44,13 +40,9 @@ graph LR
 
 Each binary digit (bit) corresponds to a specific power of two.
 
----
-
 ## Converting Between Number Systems
 
 Conversion between bases is essential for understanding how computers encode values.
-
----
 
 ### Decimal to Binary
 
@@ -67,32 +59,31 @@ Example: Convert \( 37_{10} \) to binary.
 | 5 | 2 ÷ 2 | 1 | 0 |
 | 6 | 1 ÷ 2 | 0 | 1 |
 
-\[
-37_{10} = 100101_2
-\]
+Reading remainders upward:
 
----
+$$
+37_{10} = 100101_2
+$$
 
 ### Binary to Decimal
 
 Multiply each bit by its corresponding power of 2 and sum the results.
 
-\[
+$$
 101101_2 = (1\times2^5) + (0\times2^4) + (1\times2^3) + (1\times2^2) + (0\times2^1) + (1\times2^0)
-\]
-\[
-= 32 + 8 + 4 + 1 = 45_{10}
-\]
+$$
 
----
+$$
+= 32 + 8 + 4 + 1 = 45_{10}
+$$
 
 ### Binary to Hexadecimal
 
 Group bits in sets of 4 from right to left.
 
-\[
+$$
 10111101_2 = BD_{16}
-\]
+$$
 
 | Binary | Hex |
 |--------|-----|
@@ -106,26 +97,21 @@ graph TD
   B2["1101 → D"]
 ```
 
----
-
 ### Hexadecimal to Decimal
 
 Each digit represents a power of 16.
 
-\[
+$$
 2AF_{16} = (2 \times 16^2) + (10 \times 16^1) + (15 \times 16^0)
-\]
-\[
-= 512 + 160 + 15 = 687_{10}
-\]
+$$
 
----
+$$
+= 512 + 160 + 15 = 687_{10}
+$$
 
 ## Binary Arithmetic
 
-Binary arithmetic uses the same logic as decimal arithmetic but carries occur at base 2.
-
----
+Binary arithmetic uses the same logic as decimal arithmetic, but carries occur at base 2.
 
 ### Addition
 
@@ -136,11 +122,11 @@ Binary arithmetic uses the same logic as decimal arithmetic but carries occur at
 | 1 | 0 | 0 | 1 | 0 |
 | 1 | 1 | 0 | 0 | 1 |
 
-Example:
+For Example:
 
-\[
+$$
 1011_2 + 0110_2 = 10001_2
-\]
+$$
 
 ```mermaid
 graph LR
@@ -152,24 +138,23 @@ graph LR
   C --> Cout
 ```
 
----
-
 ### Subtraction Using Two’s Complement
 
 Subtraction is performed by **adding** the two’s complement of the subtrahend.
 
-\[
+$$
 A - B = A + (\lnot B + 1)
-\]
+$$
 
 Example: \( 0101_2 - 1000_2 \)
 
 1. Invert B: \( \lnot 1000 = 0111 \)  
 2. Add 1: \( 0111 + 1 = 1000 \)  
-3. Add to A: \( 0101 + 1000 = 1101_2 \)  
-\[
+3. Add to A: \( 0101 + 1000 = 1101_2 \)
+
+$$
 1101_2 = -3_{10}
-\]
+$$
 
 ---
 
@@ -177,7 +162,7 @@ Example: \( 0101_2 - 1000_2 \)
 
 Performed similarly to long multiplication in decimal.
 
-\[
+$$
 \begin{array}{r}
 \phantom{\times}\ 101\\
 \times\ 110\\
@@ -188,11 +173,11 @@ Performed similarly to long multiplication in decimal.
 \hline
 \ 11110_2
 \end{array}
-\]
+$$
 
-\[
+$$
 11110_2 = 30_{10}
-\]
+$$
 
 ---
 
@@ -200,13 +185,11 @@ Performed similarly to long multiplication in decimal.
 
 Binary division is repeated subtraction with shifting.
 
-\[
+$$
 11101_2 \div 11_2 = 1001_2
-\]
+$$
 
 Quotient: \( 1001_2 \) Remainder: \( 0_2 \)
-
----
 
 ## Representing Negative Numbers
 
@@ -219,8 +202,6 @@ To handle signed numbers, computers use the **most significant bit (MSB)** as a 
 | One’s Complement | ±0 … ±7 | Invert bits for negative | End-around carry |
 | Two’s Complement | −8 … +7 | Invert bits then add 1 | Modern standard |
 
----
-
 ### Two’s Complement Process
 
 ```mermaid
@@ -232,15 +213,15 @@ graph TD
   A --> B --> C --> D
 ```
 
-Example: represent −6 in 4 bits  
-\[
-+6 = 0110,\quad \lnot0110 = 1001,\quad 1001 + 1 = 1010
-\]
-\[
-1010_2 = -6_{10}
-\]
+Example: represent −6 in 4 bits
 
----
+$$
++6 = 0110,\quad \lnot0110 = 1001,\quad 1001 + 1 = 1010
+$$
+
+$$
+1010_2 = -6_{10}
+$$
 
 ## Comparison of Representations
 
@@ -251,8 +232,6 @@ Example: represent −6 in 4 bits
 | Range (4 bit) | −7 to +7 | −7 to +7 | −8 to +7 |
 | Hardware usage | Obsolete | Rare | Universal |
 
----
-
 ## Practice Problems
 
 1. Convert \( 101011_2 \) to decimal  
@@ -262,18 +241,16 @@ Example: represent −6 in 4 bits
 5. Represent −6 in 4-bit two’s complement  
 
 **Hint:**  
-\[
+$$
 +6 = 0110 \Rightarrow \lnot0110 = 1001 \Rightarrow 1001 + 1 = 1010
-\]
-
----
+$$
 
 ## Summary
 
 - Binary is the foundation of all digital systems.  
 - Two’s complement allows signed arithmetic with one zero.  
 - Conversions between number systems are essential for computer architecture.  
-- Bit width defines the numeric range and overflow behaviour.
+- Bit width defines numeric range and overflow behaviour.
 
 ---
 
@@ -286,4 +263,4 @@ Example: represent −6 in 4 bits
 - [University of Cambridge — Binary Arithmetic and Number Systems](https://www.cl.cam.ac.uk/teaching/)  
 - [NIST Digital Library of Mathematical Functions — Number Representation](https://dlmf.nist.gov/)  
 - [TutorialsPoint — Binary Arithmetic](https://www.tutorialspoint.com/computer_logical_organization/binary_arithmetic.htm)  
-- [GeeksforGeeks — Binary Number System](https://www.geeksforgeeks.org/binary-number-system/)  
+- [GeeksforGeeks — Binary Number System](https://www.geeksforgeeks.org/binary-number-system/)
