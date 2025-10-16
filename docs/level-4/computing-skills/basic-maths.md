@@ -131,22 +131,21 @@ Similar to long multiplication in decimal.
 
 Example:
 
-Example:
-
 \[
-101_2 \times 110_2
+\begin{aligned}
+&101_2 \times 110_2 \\[4pt]
+&\begin{array}{r}
+\phantom{\times}\ 101\\
+\times\ 110\\
+\hline
+\ \ \ 000\\
+\ \ 1010\\
+\ 10100\\
+\hline
+\ 11110_2
+\end{array}
+\end{aligned}
 \]
-
-<pre><code>
-      101
-×     110
------------
-      000
-+    1010
-+   10100
------------
-    11110₂
-</code></pre>
 
 \[
 11110_2 = 30_{10}
@@ -165,7 +164,7 @@ Example:
 Result:
 
 \[
-11101_2 ÷ 11_2 = 1001_2
+11101_2 \div 11_2 = 1001_2
 \]
 
 Quotient: \( 1001_2 \), Remainder: \( 0_2 \)
@@ -192,7 +191,7 @@ Sign bit = 1 → negative
 Magnitude bits = 101 → 5
 
 \[
-Value = -5
+\text{Value} = -5
 \]
 
 ---
@@ -215,9 +214,9 @@ Invert + 1 → \( 0000 + 1 = 0001 \)
 | Property | Signed Magnitude | One’s Complement | Two’s Complement |
 |-----------|------------------|------------------|------------------|
 | Zero representations | +0 / −0 | +0 / −0 | Single 0 |
-| Easy arithmetic | ✗ | Partial | ✓ |
+| Easy arithmetic | No | Partial | Yes |
 | Range (4-bit) | −7 to +7 | −7 to +7 | −8 to +7 |
-| Modern usage | No | No | **Yes** |
+| Modern usage | No | No | Yes |
 
 ---
 
@@ -252,8 +251,5 @@ For question 5:
 - Stallings, W. (2019). *Computer Organization and Architecture* (11th ed.). Pearson Education.  
 - Mano, M. M., & Ciletti, M. D. (2017). *Digital Design* (6th ed.). Pearson.  
 - IEEE Computer Society. (2019). *IEEE Standard for Floating-Point Arithmetic (IEEE 754-2019)*.  
-- University of Cambridge — Computer Laboratory. [*Binary Arithmetic and Number Systems*](https://www.cl.cam.ac.uk/teaching/).  
-- NIST Digital Library of Mathematical Functions. [*Number Representation in Computing Systems*](https://dlmf.nist.gov/).  
-- TutorialsPoint. [*Binary Arithmetic – Addition, Subtraction, Multiplication, Division*](https://www.tutorialspoint.com/computer_logical_organization/binary_arithmetic.htm).  
-- GeeksforGeeks. [*Binary Number System – Introduction and Operations*](https://www.geeksforgeeks.org/binary-number-system/).  
-
+- University of Cambridge — Computer Laboratory. *Course materials on number systems and binary arithmetic.*  
+- NIST Digital Library of Mathematical Functions. *Number representation in computing systems.*
