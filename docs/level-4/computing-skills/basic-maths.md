@@ -252,8 +252,6 @@ $$
 - Conversions between number systems are essential for computer architecture.  
 - Bit width defines numeric range and overflow behaviour.
 
----
-
 ## References
 
 - Patterson, D. A., & Hennessy, J. L. (2021). *Computer Organization and Design: The Hardware/Software Interface* (6th ed.). Morgan Kaufmann.  
