@@ -159,5 +159,3 @@ Any PR which does not meet these requirements, nor follow the outlined contribut
 All content is shared under the **Unlicense** unless otherwise stated.
 Contributors retain authorship of their own submissions.
 
-:3
-:3
