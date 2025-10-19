@@ -1,13 +1,45 @@
+# =========================================
+# MkDocs Core and Theme
+# =========================================
 mkdocs>=1.6
 mkdocs-material>=9.6
 mkdocs-material-extensions>=1.3
 pymdown-extensions>=10.7
 
-# Plugins
+# =========================================
+# MkDocs Plugins
+# =========================================
 mkdocs-bibtex>=2.14
 mkdocs-git-revision-date-localized-plugin>=1.2
 mkdocs-git-committers-plugin-2>=2.5
 mkdocs-minify-plugin>=0.3.0
+mkdocs-redirects>=1.2.1
+mkdocs-same-dir>=0.1.4
+mkdocs-simple-hooks>=0.1.5
 
-# Optional but recommended for diagrams/math
+# =========================================
+# Optional but Recommended Plugins
+# =========================================
 mkdocs-mermaid2-plugin>=0.6.0
+mkdocs-tags-plugin>=0.10.0
+mkdocs-section-index>=0.3.8            
+mkdocs-sitemap-plugin>=0.2.0           
+
+# =========================================
+# Utilities / Syntax / Linting
+# =========================================
+mkdocs-awesome-pages-plugin>=2.9.2
+mkdocs-literate-nav>=0.6.1  
+mkdocs-exclude>=1.0.2
+
+# =========================================
+# Math, Diagrams, and Extras
+# =========================================
+markdown-katex>=20240510
+jinja2>=3.1.4
+pyyaml>=6.0.2
+
+# =========================================
+# Dev / Preview Tools
+# =========================================
+watchdog>=4.0.0
