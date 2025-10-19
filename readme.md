@@ -3,6 +3,8 @@
 Collaborative notes and references from **BSc (Hons) Computer Science** undergraduate studies.
 This repository gathers summaries, explanations, and key concepts from various modules and topics, contributed by multiple students.
 
+These notes will develop and more content will be added as time goes on, and as I progress through this course.
+
 [![GitHub Repo stars](https://img.shields.io/github/stars/jaysalw/csref.dev?style=for-the-badge&logo=github)](https://github.com/jaysalw/csref.dev/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jaysalw/csref.dev?style=for-the-badge&logo=git)](https://github.com/jaysalw/csref.dev/commits/main)

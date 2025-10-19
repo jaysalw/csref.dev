@@ -14,6 +14,8 @@ csref.dev is a collaborative collection of computer science notes and resources,
 
     If you wish to help us with this collection of notes, feel free to head to the [GitHub Repo](https://github.com/jaysalw/csref.dev).
 
+    Please ensure that you follow the contribution guide as listed within the README.md file at the root of the repo.
+
 [![GitHub Repo stars](https://img.shields.io/github/stars/jaysalw/csref.dev?style=for-the-badge&logo=github)](https://github.com/jaysalw/csref.dev/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jaysalw/csref.dev?style=for-the-badge&logo=git)](https://github.com/jaysalw/csref.dev/commits/main)
