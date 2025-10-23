@@ -7,7 +7,9 @@ hide:
 # 👋 Welcome to Computer Science Reference
 csref.dev is a collaborative collection of computer science notes and resources, organized by academic level. Explore modules on programming, software development, tech stacks, and more.
 
-> Never ship code on a friday, or else. 😈
+> Never ship code on a friday, or else. 
+
+Don't be the person who ships on a friday - it can cause so many issues 😭.
 
 !!! info "Construction Site!"
     Some pages, notes, etc may not be available or complete.  
