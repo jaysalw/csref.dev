@@ -23,7 +23,7 @@ mkdocs-simple-hooks>=0.1.5
 mkdocs-mermaid2-plugin>=0.6.0
 #mkdocs-tags-plugin>=0.10.0
 mkdocs-section-index>=0.3.8            
-mkdocs-sitemap-plugin>=0.2.0           
+#mkdocs-sitemap-plugin>=0.2.0           
 
 # =========================================
 # Utilities / Syntax / Linting
