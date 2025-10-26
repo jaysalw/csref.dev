@@ -19,16 +19,16 @@ mkdocs-simple-hooks
 # =========================================
 # Optional but Recommended Plugins
 # =========================================
-mkdocs-mermaid2-Plugins
-#mkdocs-tags-plugin
-mkdocs-section-index            
-#mkdocs-sitemap-plugin      
+mkdocs-mermaid2-plugin
+# mkdocs-tags-plugin
+mkdocs-section-index
+# mkdocs-sitemap-plugin
 
 # =========================================
 # Utilities / Syntax / Linting
 # =========================================
 mkdocs-awesome-pages-plugin
-mkdocs-literate-nav 
+mkdocs-literate-nav
 mkdocs-exclude
 
 # =========================================
