@@ -20,9 +20,9 @@ mkdocs-simple-hooks
 # Optional but Recommended Plugins
 # =========================================
 mkdocs-mermaid2-plugin
-# mkdocs-tags-plugin
+mkdocs-tags-plugin
 mkdocs-section-index
-# mkdocs-sitemap-plugin
+mkdocs-sitemap-plugin
 
 # =========================================
 # Utilities / Syntax / Linting
