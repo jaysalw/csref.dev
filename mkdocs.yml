@@ -41,9 +41,30 @@ theme:
 
 nav:
   - Home: index.md
-  - Architecture:
-      - Computer Architectures (Extended): computer-architectures-extended.md
-  - About: about.md
+  - Level 3:
+      - Overview: level-3/overview.md
+      - Basic Programming:
+          - Overview: level-3/basic-programming/overview.md
+      - Core Topics:
+          - Overview: level-3/core-topics/overview.md
+      - Using Git:
+          - Overview: level-3/using-git/overview.md
+  - Level 4:
+      - Overview: level-4/overview.md
+      - Computing Skills:
+          - Overview: level-4/computing-skills/overview.md
+          - Computer Systems and Architecture: level-4/computing-skills/computer-systems-and-architecture.md
+          - Data Representation: level-4/computing-skills/data-representation.md
+          - Computational Thinking: level-4/computing-skills/computational-thinking.md
+          - Python Fundamentals: level-4/computing-skills/python-fundamentals.md
+          - Modelling and Abstraction: level-4/computing-skills/modelling-and-abstraction.md
+          - Ethics and AI: level-4/computing-skills/ethics-and-ai.md
+      - Software Development:
+          - Overview: level-4/software-development/overview.md
+      - Tech Stack:
+          - Overview: level-4/tech-stack/overview.md
+      - User Experience:
+          - Overview: level-4/user-experience/overview.md
 
 plugins:
   - search
