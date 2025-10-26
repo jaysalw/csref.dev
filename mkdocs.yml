@@ -68,6 +68,10 @@ nav:
 
 plugins:
   - search
+  - bibtex:
+      bib_file: docs/references.bib
+      cite_style: ieee
+      cited_only: true
   - minify:
       minify_html: true
   - git-revision-date-localized:
@@ -113,16 +117,16 @@ extra:
       link: https://github.com/jaysalw/csref.dev
   generator: false
 
-extra_css:
-  - stylesheets/extra.css
+# Remove extra_css line because docs/stylesheets/extra.css is not in repo yet.
+# extra_css:
+#   - stylesheets/extra.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+# Only watch the docs folder (exists). Remove non-existent paths.
 watch:
   - docs
-  - overrides
-  - stylesheets
 
 docs_dir: docs
 use_directory_urls: true
