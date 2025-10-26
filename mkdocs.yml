@@ -68,7 +68,6 @@ nav:
 
 plugins:
   - search
-  - tags
   - minify:
       minify_html: true
   - git-revision-date-localized:
