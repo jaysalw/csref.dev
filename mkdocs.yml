@@ -74,8 +74,6 @@ plugins:
       enable_creation_date: true
       fallback_to_build_date: true
       type: date
-  - sitemap:
-      url: https://csref.dev
   - redirects:
       redirect_maps:
         old/architectures.md: computer-architectures-extended.md

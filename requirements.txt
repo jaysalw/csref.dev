@@ -21,7 +21,6 @@ mkdocs-simple-hooks
 # =========================================
 mkdocs-mermaid2-plugin
 mkdocs-section-index
-mkdocs-sitemap-plugin
 
 # =========================================
 # Utilities / Syntax / Linting
