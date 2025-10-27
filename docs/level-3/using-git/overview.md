@@ -13,11 +13,6 @@ This page introduces practical Git usage for Level 3 learners. It focuses on eve
 3. Edit files, stage changes, and commit with clear messages.
 4. Push your branch to a remote and open a Pull Request (PR) for review.
 5. Address review comments, merge the branch into the main branch, and pull the latest changes locally.
----
-title: Using Git
-hide:
-  - toc
----
 
 # 3️⃣ Using Git — Level 3
 
