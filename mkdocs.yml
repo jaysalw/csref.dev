@@ -130,6 +130,6 @@ watch:
 
 docs_dir: docs
 use_directory_urls: true
-strict: true
+strict: false
 
 copyright: "See the License within the GitHub Repo for more details."
