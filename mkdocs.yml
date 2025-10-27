@@ -23,8 +23,8 @@ theme:
     - search.highlight
   icon:
     repo: fontawesome/brands/github
-  favicon: images/favicon.png
-  logo: images/logo.png
+  favicon: docs/assets/logo.png
+  logo: docs/assets/logo.png
   palette:
     - scheme: default
       primary: indigo
