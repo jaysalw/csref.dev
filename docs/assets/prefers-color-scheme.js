@@ -73,19 +73,21 @@
       toggleThemeAndSave();
     });
 
-    // icon span
-    const span = document.createElement('span');
-    span.className = 'csref-theme-toggle__icon';
-    span.style.marginRight = '0.45rem';
-    btn.appendChild(span);
+      // Use Font Awesome icons for reliable rendering
+      const icon = document.createElement('i');
+      icon.className = document.documentElement.getAttribute('data-md-color-scheme') === DARK ? 'fa-solid fa-moon csref-theme-toggle__icon' : 'fa-solid fa-sun csref-theme-toggle__icon';
+      icon.setAttribute('aria-hidden', 'true');
+      btn.appendChild(icon);
 
-    const text = document.createElement('span');
-    text.className = 'csref-theme-toggle__text';
-    text.textContent = 'Theme';
-    btn.appendChild(text);
-
-    // insert at start of header meta for visibility
-    container.insertBefore(btn, container.firstChild);
+    // Prefer placing next to the search bar if available
+    const searchEl = document.querySelector('.md-search, .md-header__search, .md-search__form, .md-search__inner');
+    if (searchEl && searchEl.parentNode) {
+      if (searchEl.nextSibling) searchEl.parentNode.insertBefore(btn, searchEl.nextSibling);
+      else searchEl.parentNode.appendChild(btn);
+    } else {
+      // fallback: insert at start of header meta for visibility
+      container.insertBefore(btn, container.firstChild);
+    }
     // set initial state
     updateFallbackButton(btn, document.documentElement.getAttribute('data-md-color-scheme'));
     return btn;
@@ -94,14 +96,11 @@
   function updateFallbackButton(btn, scheme) {
     if (!btn) return;
     const icon = btn.querySelector('.csref-theme-toggle__icon');
-    const text = btn.querySelector('.csref-theme-toggle__text');
     if (scheme === DARK) {
-      if (icon) icon.textContent = '🌙';
-      if (text) text.textContent = 'Dark';
+      if (icon) icon.className = 'fa-solid fa-moon csref-theme-toggle__icon';
       btn.style.background = 'rgba(255,255,255,0.04)';
     } else {
-      if (icon) icon.textContent = '☀️';
-      if (text) text.textContent = 'Light';
+      if (icon) icon.className = 'fa-solid fa-sun csref-theme-toggle__icon';
       btn.style.background = 'rgba(0,0,0,0.04)';
     }
   }
