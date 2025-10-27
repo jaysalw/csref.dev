@@ -83,10 +83,10 @@ nav:
           - Blockchain Lab: level-3/core-topics/labs/blockchain-lab.md
           - Labs README: level-3/core-topics/labs/README.md
       - Using Git:
-      - Overview: level-3/using-git/overview.md
-      - Examples: level-3/using-git/examples.md
-      - Exercises: level-3/using-git/exercises.md
-      - Using Git in VS Code: level-3/using-git/using-vs-code.md
+        - Overview: level-3/using-git/overview.md
+        - Examples: level-3/using-git/examples.md
+        - Exercises: level-3/using-git/exercises.md
+        - Using Git in VS Code: level-3/using-git/using-vs-code.md
   - Level 4:
       - Overview: level-4/overview.md
       - Computing Skills:
