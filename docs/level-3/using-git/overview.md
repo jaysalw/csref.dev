@@ -15,8 +15,6 @@ This page introduces practical Git usage for Level 3 learners. It focuses on eve
 5. Address review comments, merge the branch into the main branch, and pull the latest changes locally.
 ---
 title: Using Git
----
-title: Using Git
 hide:
   - toc
 ---
