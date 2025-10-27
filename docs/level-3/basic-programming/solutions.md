@@ -1,17 +1,3 @@
-## Solutions to exercises
-
-1. Hello, name
-
-```python
-first = input("First name: ")
-last = input("Last name: ")
-print(f"Hello, {first} {last}!")
-```
-
-2. Sum of list
-
-Loop version:
-
 ## Solutions to exercises — annotated reference implementations
 
 The solutions below are clear, well-documented reference implementations. For learning, try writing your own solution before reading these. Each solution includes a short explanation and a simple test or example.

@@ -1,14 +1,3 @@
-## I/O and Debugging
-
-Input/output
-
-Basic programs interact with users or files. For small examples we usually use standard input/output.
-
-```python
-name = input("Enter your name: ")
-print("Hello, ", name)
-```
-
 ## I/O and Debugging — robust interaction and finding bugs
 
 Programs often need to interact with users or files and you will spend time diagnosing why code doesn't work. This page covers safe I/O patterns, parsing, and a practical debugging workflow.

@@ -1,26 +1,3 @@
-## Basic data structures
-
-Choosing the right data structure makes programs clearer and faster. This section covers the common built-in structures.
-
-Lists (ordered collections)
-
-```python
-fruits = ["apple", "banana", "cherry"]
-fruits.append("date")
-print(fruits[1])  # banana
-```
-
-Dictionaries / Maps (key → value)
-
-```python
-person = {"name": "Ada", "age": 30}
-print(person["name"])  # Ada
-person["email"] = "ada@example.com"
-```
-
-Sets (unique items, unordered)
-
-```python
 ## Data structures — deep dive
 
 Selecting the right data structure makes programs clearer, faster, and less bug-prone. This page reviews common built-in structures, their properties, typical operations and costs, and practical examples.
