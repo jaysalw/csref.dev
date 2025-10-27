@@ -62,6 +62,16 @@ assert sum([3,7,2,9]) == 21
 
 ```python
 def fizzbuzz(n):
+    """
+    Generate the FizzBuzz sequence from 1 to n.
+
+    Parameters:
+        n (int): The upper bound of the sequence (inclusive).
+
+    Returns:
+        list: A list where each element is either the number, "Fizz", "Buzz", or "FizzBuzz"
+        according to the FizzBuzz rules.
+    """
     out = []
     for i in range(1, n+1):
         s = ''
