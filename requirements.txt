@@ -2,7 +2,7 @@
 # MkDocs Core and Theme
 # =========================================
 mkdocs
-mkdocs-material
+mkdocs-material>=9.0.0
 mkdocs-material-extensions
 pymdown-extensions
 
