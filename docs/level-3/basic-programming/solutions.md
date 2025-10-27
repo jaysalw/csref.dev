@@ -35,6 +35,15 @@ Loop version (explicit):
 
 ```python
 def sum_loop(values):
+    """
+    Calculate the sum of a list of numbers using a loop.
+
+    Args:
+        values (list of numbers): The numbers to sum.
+
+    Returns:
+        int or float: The sum of the input numbers.
+    """
     total = 0
     for v in values:
         total += v
