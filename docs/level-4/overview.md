@@ -17,6 +17,8 @@ hide:
     - **Level 5** - Second Year
     - **Level 6** - Third Year
 
+**Want to contribute?** See https://csref.dev/contributing
+
 ### 4️⃣ Level 4 Modules
 <div class="grid cards" markdown>
 
