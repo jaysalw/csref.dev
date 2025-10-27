@@ -45,7 +45,17 @@ nav:
   - Level 3:
       - Overview: level-3/overview.md
       - Basic Programming:
-          - Overview: level-3/basic-programming/overview.md
+      - Overview: level-3/basic-programming/overview.md
+      - Learning objectives: level-3/basic-programming/learning-objectives.md
+      - Variables & types: level-3/basic-programming/variables-and-types.md
+      - Control flow: level-3/basic-programming/control-flow.md
+      - Data structures: level-3/basic-programming/data-structures.md
+      - Functions: level-3/basic-programming/functions.md
+      - I/O & Debugging: level-3/basic-programming/io-and-debugging.md
+      - Examples: level-3/basic-programming/examples.md
+          - Exercises: level-3/basic-programming/exercises.md
+          - Solutions: level-3/basic-programming/solutions.md
+          - Further reading: level-3/basic-programming/further-reading.md
       - Core Topics:
           - Overview: level-3/core-topics/overview.md
       - Using Git:
