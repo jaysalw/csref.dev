@@ -68,6 +68,7 @@ Each citation will be automatically formatted in **IEEE style**, for example:
 [1] D. E. Knuth, *The Art of Computer Programming*, Vol. 1, 3rd ed. Addison-Wesley, 1997.
 ```
 
+## How to Contribute
 Contributions from everyone are welcome!
 If you have:
 
