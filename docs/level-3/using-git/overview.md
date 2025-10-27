@@ -178,6 +178,5 @@ git reset --hard <commit-hash>
 
 ---
 
-If you want, I will add a short `cheatsheet.md` printable page, or create step-by-step guided exercises that you can run in the repository itself. Tell me which you prefer and I'll implement it next.
 
 
