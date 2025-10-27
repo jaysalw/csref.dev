@@ -12,6 +12,10 @@
   const LIGHT = 'default';
   const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
 
+  // Inline SVGs for sun and moon (kept small and self-contained)
+  const SVG_SUN = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M6.76 4.84l-1.8-1.79L3.17 4.83l1.79 1.79 1.8-1.78zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 1.04l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17 11v2h3v-2h-3zM12 6a6 6 0 100 12 6 6 0 000-12zm4.24 11.16l1.8 1.79 1.79-1.79-1.79-1.79-1.8 1.79zM11 23h2v-3h-2v3zM4.24 18.36l1.79 1.79 1.8-1.79-1.8-1.79-1.79 1.79z"/></svg>';
+  const SVG_MOON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M9.37 5.51A7 7 0 0017 17a7 7 0 01-7.49-7.63 6.5 6.5 0 00-.14-3.86z"/></svg>';
+
   function applyTheme(name) {
     try {
       document.documentElement.setAttribute('data-md-color-scheme', name);
