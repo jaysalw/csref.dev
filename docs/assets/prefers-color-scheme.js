@@ -1,9 +1,10 @@
 /* docs/assets/prefers-color-scheme.js
-   Fallback for systems where the Material theme doesn't fully follow prefers-color-scheme
+   Improved fallback for systems where the Material theme doesn't fully follow prefers-color-scheme
    - Applies 'slate' (dark) or 'default' (light) to the html attribute `data-md-color-scheme`
    - Persists manual choice to localStorage
    - Listens for system preference changes (when no manual choice saved)
-   - Hooks clicks on common theme-toggle elements and saves the user's choice
+   - Hooks native theme-toggle clicks if present and saves the user's choice
+   - Inserts a small icon-only fallback toggle next to the search bar when the native toggle is missing/hidden
 */
 (function () {
   const STORAGE_KEY = 'csref.theme';
@@ -14,9 +15,9 @@
   function applyTheme(name) {
     try {
       document.documentElement.setAttribute('data-md-color-scheme', name);
-      // update fallback toggle UI if present
-      const fb = document.querySelector('.csref-theme-toggle');
-      if (fb) updateFallbackButton(fb, name);
+      // Update fallback icon if present
+      const fbIcon = document.querySelector('.csref-theme-toggle__icon');
+      if (fbIcon) fbIcon.textContent = name === DARK ? 'dark_mode' : 'light_mode';
     } catch (e) {
       // silent
     }
@@ -26,17 +27,13 @@
     return mql && mql.matches ? DARK : LIGHT;
   }
 
+  function saveTheme(name) {
+    try { localStorage.setItem(STORAGE_KEY, name); } catch (e) { /* ignore */ }
+  }
+
   function onSystemChange(e) {
     if (!localStorage.getItem(STORAGE_KEY)) {
       applyTheme(e.matches ? DARK : LIGHT);
-    }
-  }
-
-  function saveTheme(name) {
-    try {
-      localStorage.setItem(STORAGE_KEY, name);
-    } catch (e) {
-      // ignore storage errors
     }
   }
 
@@ -50,60 +47,62 @@
 
   function isVisible(el) {
     if (!el) return false;
-    const style = window.getComputedStyle(el);
-    return style && style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    const s = window.getComputedStyle(el);
+    return s && s.display !== 'none' && s.visibility !== 'hidden' && el.offsetParent !== null;
   }
 
-  function findThemeToggle() {
-    return document.querySelector('[data-md-toggle-theme], .md-toggle, .md-theme-toggle, button[aria-pressed][title*="theme"], button[title*="theme"]');
+  function findNativeToggle() {
+    return document.querySelector('[data-md-toggle-theme], .md-toggle, .md-theme-toggle, button[title*="theme"], button[aria-pressed][title*="theme"]');
   }
 
   function createFallbackToggle() {
-    // create a small button in the header meta area
-    const container = document.querySelector('.md-header__meta') || document.querySelector('.md-header');
-    if (!container || document.querySelector('.csref-theme-toggle')) return null;
-
+    // create a small icon button
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'csref-theme-toggle';
     btn.setAttribute('aria-label', 'Toggle theme');
-    btn.style.cssText = 'margin-left:0.6rem;padding:0.35rem 0.6rem;border-radius:6px;border:none;cursor:pointer;font-size:0.9rem;background:transparent;color:inherit;';
+    btn.style.background = 'transparent';
+    btn.style.border = 'none';
+    btn.style.cursor = 'pointer';
+
+    const icon = document.createElement('span');
+    icon.className = 'material-symbols-outlined csref-theme-toggle__icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.style.fontSize = '20px';
+    icon.textContent = document.documentElement.getAttribute('data-md-color-scheme') === DARK ? 'dark_mode' : 'light_mode';
+    btn.appendChild(icon);
+
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       toggleThemeAndSave();
     });
 
-    // icon span
-    const span = document.createElement('span');
-    span.className = 'csref-theme-toggle__icon';
-    span.style.marginRight = '0.45rem';
-    btn.appendChild(span);
+    // prefer to place next to the search bar
+    const searchEl = document.querySelector('.md-search, .md-header__search, .md-search__form, .md-search__inner');
+    if (searchEl && searchEl.parentNode) {
+      // insert after the search element
+      if (searchEl.nextSibling) searchEl.parentNode.insertBefore(btn, searchEl.nextSibling);
+      else searchEl.parentNode.appendChild(btn);
+    } else {
+      const container = document.querySelector('.md-header__meta') || document.querySelector('.md-header');
+      if (container) container.insertBefore(btn, container.firstChild);
+    }
 
-    const text = document.createElement('span');
-    text.className = 'csref-theme-toggle__text';
-    text.textContent = 'Theme';
-    btn.appendChild(text);
-
-    // insert at start of header meta for visibility
-    container.insertBefore(btn, container.firstChild);
-    // set initial state
-    updateFallbackButton(btn, document.documentElement.getAttribute('data-md-color-scheme'));
     return btn;
   }
 
-  function updateFallbackButton(btn, scheme) {
-    if (!btn) return;
-    const icon = btn.querySelector('.csref-theme-toggle__icon');
-    const text = btn.querySelector('.csref-theme-toggle__text');
-    if (scheme === DARK) {
-      if (icon) icon.textContent = '🌙';
-      if (text) text.textContent = 'Dark';
-      btn.style.background = 'rgba(255,255,255,0.04)';
-    } else {
-      if (icon) icon.textContent = '☀️';
-      if (text) text.textContent = 'Light';
-      btn.style.background = 'rgba(0,0,0,0.04)';
+  function attachToNativeToggle() {
+    const t = findNativeToggle();
+    if (t && isVisible(t)) {
+      t.addEventListener('click', function () {
+        setTimeout(function () {
+          const scheme = document.documentElement.getAttribute('data-md-color-scheme');
+          if (scheme === DARK || scheme === LIGHT) saveTheme(scheme);
+        }, 60);
+      });
+      return true;
     }
+    return false;
   }
 
   function init() {
@@ -114,41 +113,17 @@
       applyTheme(systemPreferred());
     }
 
-    // watch for system changes (only when user hasn't set a preference)
-    if (mql && (typeof mql.addEventListener === 'function')) {
-      mql.addEventListener('change', onSystemChange);
-    } else if (mql && (typeof mql.addListener === 'function')) {
-      mql.addListener(onSystemChange);
-    }
+    // listen for system changes when user hasn't chosen
+    if (mql && typeof mql.addEventListener === 'function') mql.addEventListener('change', onSystemChange);
+    else if (mql && typeof mql.addListener === 'function') mql.addListener(onSystemChange);
 
-    // If the page includes a theme toggle button from Material, hook clicks and store preference.
-    // Also create a fallback toggle if the theme toggle is not visible.
-    function attachToThemeToggleOnce() {
-      const t = findThemeToggle();
-      if (t && isVisible(t)) {
-        // ensure we capture clicks on the theme toggle to persist choice
-        t.addEventListener('click', function () {
-          // small delay to allow theme to update the DOM
-          setTimeout(function () {
-            const scheme = document.documentElement.getAttribute('data-md-color-scheme');
-            if (scheme === DARK || scheme === LIGHT) saveTheme(scheme);
-          }, 60);
-        });
-        // remove fallback if exists
-        const fb = document.querySelector('.csref-theme-toggle');
-        if (fb) fb.remove();
-        return true;
-      }
-      return false;
-    }
-
-    // try immediate attachment; if not found, create fallback and observe
-    if (!attachToThemeToggleOnce()) {
-      createFallbackToggle();
-
-      // observe DOM for the native toggle to appear or become visible, then remove fallback
+    // try to attach to native toggle; if not present, create a fallback
+    if (!attachToNativeToggle()) {
+      const fb = createFallbackToggle();
+      // observe DOM for native toggle appearing; remove fallback when native appears
       const obs = new MutationObserver(function () {
-        if (attachToThemeToggleOnce()) {
+        if (attachToNativeToggle()) {
+          try { fb.remove(); } catch (e) {}
           obs.disconnect();
         }
       });
@@ -156,9 +131,6 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

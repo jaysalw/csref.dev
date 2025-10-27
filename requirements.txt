@@ -2,7 +2,7 @@
 # MkDocs Core and Theme
 # =========================================
 mkdocs
-mkdocs-material>=9.0.0
+mkdocs-material
 mkdocs-material-extensions
 pymdown-extensions
 
@@ -40,11 +40,3 @@ pyyaml
 # Dev / Preview Tools
 # =========================================
 watchdog
-
-# =========================================
-# Hands-on / Labs dependencies
-# (optional: only needed to run the example notebooks/labs)
-scikit-learn
-pandas
-numpy
-jupyter
