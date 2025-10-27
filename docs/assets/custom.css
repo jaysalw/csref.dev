@@ -178,7 +178,7 @@ hr {
   margin: 2rem 0;
 }
 
-/* Fallback theme toggle (icon-only, Font Awesome) */
+/* Fallback theme toggle (icon-only, inline SVG) */
 .csref-theme-toggle {
   display: inline-flex;
   align-items: center;
