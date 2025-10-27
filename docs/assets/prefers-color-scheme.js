@@ -98,13 +98,38 @@
   function attachToNativeToggle() {
     const t = findNativeToggle();
     if (t && isVisible(t)) {
+      // Detect whether the native toggle actually renders an icon (svg, material symbol, or fa <i>).
+      // Some deployments show the raw text 'dark_mode' / 'light_mode' when the icon font is missing.
+      const hasSvg = !!t.querySelector('svg');
+      const hasMaterialSymbol = !!t.querySelector('.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp');
+      const hasFA = !!t.querySelector('i[class*="fa-"]');
+      const text = (t.textContent || '').trim();
+      const looksLikePlaceholder = /(^|\s)(dark_mode|light_mode|_mode)(\s|$)/i.test(text);
+
+      // If the native toggle contains an actual icon, attach and allow removing the fallback.
+      if (hasSvg || hasMaterialSymbol || hasFA) {
+        t.addEventListener('click', function () {
+          setTimeout(function () {
+            const scheme = document.documentElement.getAttribute('data-md-color-scheme');
+            if (scheme === DARK || scheme === LIGHT) saveTheme(scheme);
+          }, 60);
+        });
+        return true;
+      }
+
+      // If it looks like a placeholder (raw icon name), don't remove the fallback — keep our working icon.
+      if (looksLikePlaceholder) {
+        return false;
+      }
+
+      // Otherwise, attach to clicks to persist preference but keep the fallback visible (return false).
       t.addEventListener('click', function () {
         setTimeout(function () {
           const scheme = document.documentElement.getAttribute('data-md-color-scheme');
           if (scheme === DARK || scheme === LIGHT) saveTheme(scheme);
         }, 60);
       });
-      return true;
+      return false;
     }
     return false;
   }
