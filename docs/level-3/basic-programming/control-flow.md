@@ -1,43 +1,5 @@
 ## Control flow
 
-Control flow determines which statements in a program run and how many times. The two main control structures are conditionals and loops.
-
-Conditionals
-
-Use `if`, `elif`/`else` to choose between alternatives.
-
-```python
-score = 72
-if score >= 70:
-    print("Pass")
-elif score >= 50:
-    print("Borderline")
-else:
-    print("Fail")
-```
-
-Loops
-
-- `for` loops iterate over sequences (lists, range, strings)
-- `while` loops repeat until a condition is false
-
-```python
-for i in range(5):
-    print(i)
-
-count = 0
-while count < 3:
-    print("tick")
-    count += 1
-```
-
-Control keywords
-
-- `break` stops the loop early
-- `continue` skips to the next iteration
-
-## Control flow
-
 Control flow decides which statements execute and how many times. The two main categories are conditionals (branching) and loops (repetition). Mastering them is essential for building algorithms, handling input, and reacting to program state.
 
 ### Boolean expressions and truthiness

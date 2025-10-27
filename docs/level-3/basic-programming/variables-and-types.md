@@ -1,29 +1,5 @@
 ## Variables and Types
 
-Variables store named values that your program can read and change. Types describe what kind of data a value represents and what operations are valid.
-
-Core concepts
-
-- Variable: a name bound to a value
-- Primitive types: integers, floating-point numbers, strings, booleans
-- Type conversion: converting one type to another when needed
-- Immutability vs mutability: some types (like strings) are immutable; others (like lists) can be changed in place
-
-Examples (Python)
-
-```python
-# integer
-count = 5
-
-# float
-price = 3.50
-
-# string
-name = "Ada"
-
-# boolean
-## Variables and Types
-
 This page expands on variables, data types, and typing-related ideas that make everyday programming predictable and safe. Understanding these early reduces bugs later.
 
 ### What is a variable?
