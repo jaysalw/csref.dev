@@ -14,7 +14,10 @@ theme:
     - navigation.top
     - navigation.sections
     - navigation.indexes
+    - navigation.instant
+    - navigation.expand
     - toc.follow
+    - toc.integrate
     - content.code.copy
     - content.code.annotate
     - content.action.edit
@@ -29,12 +32,15 @@ theme:
     - scheme: default
       primary: indigo
       accent: teal
+      # follow user's browser/OS preference for light/dark by default
+      media: '(prefers-color-scheme: light)'
+      toggle:
+        icon: material/weather-night
+        name: Switch theme
     - scheme: slate
       primary: indigo
       accent: teal
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
+      media: '(prefers-color-scheme: dark)'
   font:
     text: Inter
     code: JetBrains Mono
@@ -130,6 +136,7 @@ extra_css:
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/prefers-color-scheme.js
 
 watch:
   - docs
