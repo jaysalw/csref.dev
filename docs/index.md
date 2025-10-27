@@ -77,3 +77,5 @@ This map provides an overview of the topics and modules available in our notes, 
     [:material-arrow-right: Open](level-4/user-experience)
 
 </div>
+
+![csref.dev banner](assets/general/csref-banner.png)
