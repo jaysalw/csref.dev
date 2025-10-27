@@ -49,44 +49,44 @@ nav:
   - Home: index.md
   - Contributing: contributing.md
   - Level 3:
-      - Overview: level-3/overview.md
-      - Basic Programming:
-      - Overview: level-3/basic-programming/overview_fixed.md
-          - Learning objectives: level-3/basic-programming/learning-objectives.md
-          - Variables & types: level-3/basic-programming/variables-and-types.md
-          - Control flow: level-3/basic-programming/control-flow.md
-          - Data structures: level-3/basic-programming/data-structures.md
-          - Functions: level-3/basic-programming/functions.md
-          - I/O & Debugging: level-3/basic-programming/io-and-debugging.md
-          - Examples: level-3/basic-programming/examples.md
-          - Exercises: level-3/basic-programming/exercises.md
-          - Solutions: level-3/basic-programming/solutions.md
-      - Core Topics:
-        - Overview: level-3/core-topics/overview.md
-        - AI:
-          - Overview: level-3/core-topics/ai.md
-          - ML fundamentals: level-3/core-topics/ai-ml-fundamentals.md
-          - Deep learning: level-3/core-topics/ai-deep-learning.md
-          - Ethics & fairness: level-3/core-topics/ai-ethics-fairness.md
-        - Blockchain:
-          - Overview: level-3/core-topics/blockchain.md
-          - Smart contracts: level-3/core-topics/blockchain-smart-contracts.md
-          - Privacy & scaling: level-3/core-topics/blockchain-privacy-scaling.md
-        - Emerging technologies:
-          - Overview: level-3/core-topics/emerging-technologies.md
-          - Edge & cloud: level-3/core-topics/emerging-edge-cloud.md
-          - IoT: level-3/core-topics/emerging-iot.md
-          - Quantum: level-3/core-topics/emerging-quantum.md
-        - Security & privacy: level-3/core-topics/security-and-privacy.md
-        - Labs:
-          - AI/ML Lab: level-3/core-topics/labs/ai-ml-lab.md
-          - Blockchain Lab: level-3/core-topics/labs/blockchain-lab.md
-          - Labs README: level-3/core-topics/labs/README.md
-      - Using Git:
-        - Overview: level-3/using-git/overview.md
-        - Examples: level-3/using-git/examples.md
-        - Exercises: level-3/using-git/exercises.md
-        - Using Git in VS Code: level-3/using-git/using-vs-code.md
+    - Overview: level-3/overview.md
+    - Basic Programming:
+      - Overview: level-3/basic-programming/overview.md
+      - Learning objectives: level-3/basic-programming/learning-objectives.md
+      - Variables & types: level-3/basic-programming/variables-and-types.md
+      - Control flow: level-3/basic-programming/control-flow.md
+      - Data structures: level-3/basic-programming/data-structures.md
+      - Functions: level-3/basic-programming/functions.md
+      - I/O & Debugging: level-3/basic-programming/io-and-debugging.md
+      - Examples: level-3/basic-programming/examples.md
+      - Exercises: level-3/basic-programming/exercises.md
+      - Solutions: level-3/basic-programming/solutions.md
+    - Core Topics:
+      - Overview: level-3/core-topics/overview.md
+      - AI:
+        - Overview: level-3/core-topics/ai.md
+        - ML fundamentals: level-3/core-topics/ai-ml-fundamentals.md
+        - Deep learning: level-3/core-topics/ai-deep-learning.md
+        - Ethics & fairness: level-3/core-topics/ai-ethics-fairness.md
+      - Blockchain:
+        - Overview: level-3/core-topics/blockchain.md
+        - Smart contracts: level-3/core-topics/blockchain-smart-contracts.md
+        - Privacy & scaling: level-3/core-topics/blockchain-privacy-scaling.md
+      - Emerging technologies:
+        - Overview: level-3/core-topics/emerging-technologies.md
+        - Edge & cloud: level-3/core-topics/emerging-edge-cloud.md
+        - IoT: level-3/core-topics/emerging-iot.md
+        - Quantum: level-3/core-topics/emerging-quantum.md
+      - Security & privacy: level-3/core-topics/security-and-privacy.md
+      - Labs:
+        - AI/ML Lab: level-3/core-topics/labs/ai-ml-lab.md
+        - Blockchain Lab: level-3/core-topics/labs/blockchain-lab.md
+        - Labs README: level-3/core-topics/labs/README.md
+    - Using Git:
+      - Overview: level-3/using-git/overview.md
+      - Examples: level-3/using-git/examples.md
+      - Exercises: level-3/using-git/exercises.md
+      - Using Git in VS Code: level-3/using-git/using-vs-code.md
   - Level 4:
       - Overview: level-4/overview.md
       - Computing Skills:

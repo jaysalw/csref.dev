@@ -15,6 +15,8 @@ This page introduces practical Git usage for Level 3 learners. It focuses on eve
 5. Address review comments, merge the branch into the main branch, and pull the latest changes locally.
 ---
 title: Using Git
+---
+title: Using Git
 hide:
   - toc
 ---
@@ -43,9 +45,5 @@ hide:
 	[:material-arrow-right: Open](level-3/using-git/using-vs-code.md)
 
 </div>
-- Push branch to remote:
-
-
-
 ```powershell
 
