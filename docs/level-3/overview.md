@@ -6,7 +6,7 @@ hide:
 
 # 3️⃣ Welcome to the Level 3 portal
 
-!!! info "Construction Site!"
+!!! info "🚧 Construction Site!"
     Some pages, notes, etc may not be available or complete.  
 
     If you wish to help us with this collection of notes, feel free to head to the [GitHub Repo](https://github.com/jaysalw/csref.dev).
