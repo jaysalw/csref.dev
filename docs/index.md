@@ -23,6 +23,10 @@ Don't be the person who ships on a friday - it can cause so many issues 😭.
 [![GitHub last commit](https://img.shields.io/github/last-commit/jaysalw/csref.dev?style=for-the-badge&logo=git)](https://github.com/jaysalw/csref.dev/commits/main)
 [![License](https://img.shields.io/github/license/jaysalw/csref.dev?style=for-the-badge)](https://github.com/jaysalw/csref.dev/blob/main/LICENSE)
 
+## ❓ Have questions, or need help?
+Head over to our [GitHub Discussions Page](https://github.com/jaysalw/csref.dev/discussions) and get started. We're able to help with questions about content on the site, or requests for additional content (you can always create an [issue](https://github.com/jaysalw/csref.dev/issues) with what you'd like us to add, or you can [contribute](https://csref.dev/contributing/)).
+
+
 ---
 
 ## 🗃️ Module Map

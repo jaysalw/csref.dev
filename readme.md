@@ -15,6 +15,9 @@ csref.dev is what it is today thanks to our contributors:
 [![Contributors](https://contrib.rocks/image?repo=jaysalw/csref.dev)](https://github.com/jaysalw/csref.dev/graphs/contributors)
 ---
 
+## ❓ Have questions, or need help?
+Head over to our [GitHub Discussions Page](https://github.com/jaysalw/csref.dev/discussions) and get started. We're able to help with questions about content on the site, or requests for additional content (you can always create an [issue](https://github.com/jaysalw/csref.dev/issues) with what you'd like us to add, or you can [contribute](https://csref.dev/contributing/)).
+
 ## 🧩 Contents
 
 * Notes on core computer science subjects
