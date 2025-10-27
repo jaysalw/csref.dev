@@ -85,6 +85,7 @@
     btn.appendChild(icon);
 
     // Prefer placing next to the search bar if available
+    // Try multiple selectors to handle different Material for MkDocs versions/configurations
     const searchEl = document.querySelector('.md-search, .md-header__search, .md-search__form, .md-search__inner');
     if (searchEl && searchEl.parentNode) {
       if (searchEl.nextSibling) searchEl.parentNode.insertBefore(btn, searchEl.nextSibling);
