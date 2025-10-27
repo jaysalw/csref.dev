@@ -12,72 +12,123 @@ print(f"Hello, {first} {last}!")
 
 Loop version:
 
+## Solutions to exercises — annotated reference implementations
+
+The solutions below are clear, well-documented reference implementations. For learning, try writing your own solution before reading these. Each solution includes a short explanation and a simple test or example.
+
+### 1) Hello, name
+
 ```python
-values = [3, 7, 2, 9]
-total = 0
-for v in values:
-    total += v
-print(total)
+def greet_from_input():
+    first = input("First name: ")
+    last = input("Last name: ")
+    print(f"Hello, {first} {last}!")
+
+# Example: simulate calls in tests by passing known strings or refactoring input() usage.
 ```
 
-Built-in version:
+Notes: straightforward; prefer f-strings for readability.
+
+### 2) Sum of list
+
+Loop version (explicit):
 
 ```python
-print(sum([3, 7, 2, 9]))
+def sum_loop(values):
+    total = 0
+    for v in values:
+        total += v
+    return total
+
+assert sum_loop([3,7,2,9]) == 21
 ```
 
-3. FizzBuzz (short)
+Built-in version (concise):
 
 ```python
-for n in range(1, 31):
-    out = ""
-    if n % 3 == 0:
-        out += "Fizz"
-    if n % 5 == 0:
-        out += "Buzz"
-    print(out or n)
+assert sum([3,7,2,9]) == 21
 ```
 
-4. Word frequency
+### 3) FizzBuzz (returning a list)
 
 ```python
+def fizzbuzz(n):
+    out = []
+    for i in range(1, n+1):
+        s = ''
+        if i % 3 == 0:
+            s += 'Fizz'
+        if i % 5 == 0:
+            s += 'Buzz'
+        out.append(s or i)
+    return out
+
+assert fizzbuzz(15)[14] == 'FizzBuzz'
+```
+
+### 4) Word frequency
+
+```python
+from collections import Counter
+
 def word_freq(text):
-    counts = {}
-    for word in text.lower().split():
-        counts[word] = counts.get(word, 0) + 1
-    return counts
+    words = [w.strip(".,!?;:\"'()[]") for w in text.lower().split()]
+    return Counter(words)
 
-print(word_freq("this is a test this is only a test"))
+assert word_freq("this is a test this is only a test")["this"] == 2
 ```
 
-5. Grade calculator (simple)
+### 5) Grade calculator (robust version)
 
-Read `students.csv` with lines `name,score` and output pass/fail and class average:
+This version includes basic error handling and writes an output CSV.
 
 ```python
+import csv
+from statistics import mean
+
 def read_scores(path):
     students = []
-    with open(path, encoding="utf-8") as f:
-        for line in f:
-            name, score = line.strip().split(",")
-            students.append((name, float(score)))
+    with open(path, encoding='utf-8', newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if not row:
+                continue
+            name = row[0].strip()
+            try:
+                scores = [float(x) for x in row[1:] if x.strip()]
+            except ValueError:
+                # skip malformed score rows or handle differently
+                scores = []
+            students.append((name, scores))
     return students
 
-def grade_report(students, pass_mark=50.0):
-    total = 0
-    for name, score in students:
-        total += score
-        result = "PASS" if score >= pass_mark else "FAIL"
-        print(f"{name}: {score:.1f} -> {result}")
-    avg = total / len(students) if students else 0
-    print(f"Class average: {avg:.1f}")
+def compute_report(students, pass_mark=50.0):
+    rows = []
+    all_avgs = []
+    for name, scores in students:
+        avg = mean(scores) if scores else 0
+        all_avgs.append(avg)
+        grade = 'A' if avg >= 70 else ('C' if avg >= 50 else 'F')
+        rows.append((name, avg, grade))
+    class_avg = mean(all_avgs) if all_avgs else 0
+    return rows, class_avg
 
-if __name__ == "__main__":
-    students = read_scores("students.csv")
-    grade_report(students)
+def write_report(path, rows):
+    with open(path, 'w', encoding='utf-8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(('name', 'average', 'grade'))
+        for r in rows:
+            writer.writerow(r)
+
+if __name__ == '__main__':
+    students = read_scores('students.csv')
+    rows, class_avg = compute_report(students)
+    write_report('report.csv', rows)
+    print(f'Class average: {class_avg:.1f}')
 ```
 
-Notes
+Notes: this version is resilient to missing scores and uses `statistics.mean`. For production, add better error reporting and CLI options.
 
-- These solutions prioritise clarity over cleverness. They are intended as reference implementations to compare against student attempts.
-- Error handling (malformed lines, missing files) is omitted for brevity but should be added for production code.
+---
+
+Alternative approaches and performance notes are included inline with each solution. Use these as a baseline, then refactor for clarity or performance.

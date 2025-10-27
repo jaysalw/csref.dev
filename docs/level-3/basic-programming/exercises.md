@@ -1,29 +1,67 @@
-## Exercises
+## Exercises — progressive and extensive
 
-These short exercises are suitable for practice or class tasks. Try to solve them without looking at solutions; then test incrementally.
+This curated set of exercises ranges from quick warm-ups to more substantial tasks suitable for a mini-project. Each exercise includes an estimated difficulty, suggested hints, and optional stretch goals.
 
-1. Hello, name
+Beginner (warm-ups)
 
-   - Prompt the user for their first and last name and print a greeting in the form: "Hello, Ada Lovelace!"
+1) Hello, name — difficulty: easy
 
-2. Sum of list
+   - Prompt the user for their first and last name and print: "Hello, Ada Lovelace!" using an f-string.
+   - Hint: use `input()` twice or split a single input.
 
-   - Given the list [3, 7, 2, 9], compute and print the sum. Do it first with a loop, then with a built-in function.
+2) Sum of list — difficulty: easy
 
-3. FizzBuzz (short)
+   - Given the list [3, 7, 2, 9], compute the sum first with a loop, then with `sum()`.
+   - Stretch: write a function that computes the sum without using `sum()` or loops (use recursion).
 
-   - Print numbers from 1 to 30. For multiples of 3 print "Fizz" instead of the number, for multiples of 5 print "Buzz", and for both print "FizzBuzz".
+3) Even numbers filter — difficulty: easy
 
-4. Word frequency
+   - Write a function that takes a list of integers and returns a list with only the even numbers.
 
-   - Write a function that accepts a short text string and returns a dictionary mapping words to counts (case-insensitive). Use it on the example in `examples.md`.
+Intermediate (practice standard idioms)
 
-5. Small project — grade calculator
+4) FizzBuzz variant — difficulty: medium
 
-   - Read student names and scores from input (or a small text file). Compute and print each student's average and a class average. Save output in a new file.
+   - Return a list for numbers 1..n with Fizz/Buzz/FizzBuzz rules rather than printing.
+   - Add tests for n=1, n=15 and n=30.
 
-Hints
+5) Word frequency — difficulty: medium
 
-- Start by writing small helper functions
-- Test each function separately
-- Add comments and docstrings for clarity
+   - Write a function that accepts a text string and returns a dictionary mapping words to counts (case-insensitive). Remove simple punctuation and normalise whitespace.
+   - Stretch: return the top-k most frequent words.
+
+6) Temperature parser — difficulty: medium
+
+   - Accept inputs like "32F" or "0C" and convert to Celsius floats robustly. Handle malformed input.
+
+Advanced (bigger tasks)
+
+7) Grade calculator — difficulty: medium → hard (project)
+
+   - Read a CSV where each line contains `name,score1,score2,...`.
+   - Compute per-student average, class average, and assign letter grades by configurable thresholds.
+   - Output a CSV with `name,average,grade` and a short human-readable summary.
+
+8) Simple search and index — difficulty: medium
+
+   - Given a list of records (dicts with `id` and `value`), build an index mapping `id` to record for O(1) lookup.
+
+9) Small algorithm — difficulty: hard
+
+   - Implement a simple dedup-and-sort routine that takes a list of integers containing duplicates and returns a sorted list of unique values. Do not use `set()` for the first implementation; then implement using `set()` and compare performance for large inputs.
+
+Hints and approach
+
+- Break problems into small functions; test each function.
+- Use assertions and simple test cases while developing.
+- For file-based tasks, start by writing code that works on in-memory strings and then adapt to files.
+
+Assessment suggestions (for instructors)
+
+- Beginner tasks: correctness and basic input validation.
+- Intermediate: readability, tests, and handling of edge-cases.
+- Advanced: decomposition into functions, tests, and reasonable performance for inputs up to 100k items where applicable.
+
+---
+
+Use `solutions.md` only after attempting these tasks yourself. The solutions include one or more clear, well-documented approaches and notes on complexity.
