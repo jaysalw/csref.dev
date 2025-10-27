@@ -24,13 +24,5 @@ These technologies change where and how computation happens (edge vs cloud), wha
 
 1. Pick one technology from the list and write a 150–250 word description of a realistic near-term use-case, identifying one technical challenge and one social/ethical concern.
 
-## Further reading
 
-- See `docs/references.bib` for sources related to these topics.
-
-### Related pages (expand here for deeper study)
-
-- Quantum computing — `level-3/core-topics/emerging-quantum.md`
-- Internet of Things — `level-3/core-topics/emerging-iot.md`
-- Edge vs Cloud — `level-3/core-topics/emerging-edge-cloud.md`
 

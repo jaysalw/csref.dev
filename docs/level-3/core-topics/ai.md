@@ -35,13 +35,5 @@ Discuss who benefits or loses from an AI system, whether decisions can be explai
 1. Try a simple AI demo (chatbot, image classifier) — many universities and tech providers host safe demo pages. Note what the system does well and one clear limitation.
 2. Pick an AI system you interact with (recommendation, search, etc.) and write 5 bullet points describing: input, output, one likely dataset used, one possible bias, and one mitigation.
 
-## Further reading
 
-- See `docs/references.bib` for curated sources on AI.
-
-### Related pages (expand here for deeper study)
-
-- Machine Learning fundamentals — `level-3/core-topics/ai-ml-fundamentals.md`
-- Deep Learning — `level-3/core-topics/ai-deep-learning.md`
-- Ethics, Fairness & Explainability — `level-3/core-topics/ai-ethics-fairness.md`
 
