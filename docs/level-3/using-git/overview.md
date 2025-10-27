@@ -43,5 +43,4 @@ hide:
 	[:material-arrow-right: Open](level-3/using-git/using-vs-code.md)
 
 </div>
-```powershell
 
