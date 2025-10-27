@@ -197,6 +197,10 @@ hr {
 }
 
 .csref-theme-toggle__icon {
-  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   line-height: 1;
 }
