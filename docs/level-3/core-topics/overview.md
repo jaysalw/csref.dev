@@ -13,19 +13,19 @@ hide:
 
 -   :material-brain: **Artificial Intelligence (AI)**  
 	Concepts, demos and ethical questions.  
-	[:material-arrow-right: Open](level-3/core-topics/ai.md)
+	[:material-arrow-right: Open](ai/)
 
 -   :material-currency-btc: **Blockchain & DLT**  
 	Basic concepts, uses and limitations.  
-	[:material-arrow-right: Open](level-3/core-topics/blockchain.md)
+	[:material-arrow-right: Open](blockchain/)
 
 -   :material-flash: **Emerging technologies**  
 	Survey pages for quantum, IoT, edge and more.  
-	[:material-arrow-right: Open](level-3/core-topics/emerging-technologies.md)
+	[:material-arrow-right: Open](emerging-technologies/)
 
 -   :material-flask: **Labs**  
 	Hands-on labs: AI/ML lab and Blockchain lab.  
-	[:material-arrow-right: Open](level-3/core-topics/labs/README.md)
+	[:material-arrow-right: Open](labs/README/)
 
 </div>
 
