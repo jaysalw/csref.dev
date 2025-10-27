@@ -58,7 +58,7 @@ nav:
       - Data structures: level-3/basic-programming/data-structures.md
       - Functions: level-3/basic-programming/functions.md
       - I/O & Debugging: level-3/basic-programming/io-and-debugging.md
-      - Examples: level-3/basic-programming/examples.md
+          - Examples: level-3/basic-programming/examples_fixed.md
       - Exercises: level-3/basic-programming/exercises.md
       - Solutions: level-3/basic-programming/solutions.md
     - Core Topics:

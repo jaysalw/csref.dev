@@ -37,7 +37,7 @@ hide:
 
 -   :material-playlist-play: **Examples**  
 	Worked examples you can run and adapt.  
-	[:material-arrow-right: Open](level-3/basic-programming/examples.md)
+	[:material-arrow-right: Open](level-3/basic-programming/examples_fixed.md)
 
 -   :material-clipboard-text: **Exercises**  
 	Practice tasks from beginner to advanced.  

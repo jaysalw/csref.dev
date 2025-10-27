@@ -1,8 +1,9 @@
-## Worked examples
-
-Example 1 — Temperature converter (Celsius → Fahrenheit)
-
 ## Worked examples — step-by-step annotated
+
+This page contains several worked examples with explanations, ideas for extension, and notes about common mistakes. Work through these interactively in a REPL or small script.
+
+### Example 1 — Temperature converter (Celsius ↔ Fahrenheit)
+
 Goal: write two small functions to convert temperatures both ways, and a small CLI wrapper.
 
 ```python
