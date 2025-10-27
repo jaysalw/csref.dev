@@ -21,15 +21,15 @@ hide:
 <div class="grid cards" markdown>
 
 -   :material-language-python: **Basic Programming**  
-    Introduction to Python & Object-Oriented Programming (OOP).  
-    [:material-arrow-right: Open](level-3/basic-programming)
+    Core programming concepts and worked examples (Python).  
+    [:material-arrow-right: Open](level-3/basic-programming/overview.md)
 
 -   :material-newspaper-variant-outline: **Core Topics**  
-    Current Affairs in Computing.  
-    [:material-arrow-right: Open](level-3/core-topics)
+    Short lessons on AI, blockchain, emerging tech and labs.  
+    [:material-arrow-right: Open](level-3/core-topics/overview.md)
 
 -   :material-git: **Using Git**  
-    Learn the fundamentals of version control, collaboration, and managing code with Git.  
-    [:material-arrow-right: Open](level-3/using-git)
+    Practical version-control workflows and VS Code integration.  
+    [:material-arrow-right: Open](level-3/using-git/overview.md)
 
 </div>
