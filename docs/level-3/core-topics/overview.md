@@ -1,4 +1,3 @@
-(The file `c:\Users\Lenovo\OneDrive - Leeds Trinity University\Documents\Git Clone Area\csref.dev\docs\level-3\core-topics\overview.md` exists, but is empty)
 # Core Topics — Level 3
 
 This section covers current and emerging topics in computing that are important for modern study and practice. It is designed for Level 3 learners and focuses on high-level concepts, real-world examples, ethical considerations, and short practical activities you can try.
