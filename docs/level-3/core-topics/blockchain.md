@@ -33,12 +33,5 @@ Limitations:
 1. Use a blockchain explorer for a public chain to view a transaction (or use a simulated ledger). Identify sender, receiver, amount (if applicable), and what metadata is visible.
 2. Write a short paragraph: where might a ledger help in your everyday life, and where might it cause problems?
 
-## Further reading
 
-- Consult `docs/references.bib` for entry points into blockchain literature.
-
-### Related pages (expand here for deeper study)
-
-- Smart Contracts — `level-3/core-topics/blockchain-smart-contracts.md`
-- Privacy & Scaling — `level-3/core-topics/blockchain-privacy-scaling.md`
 

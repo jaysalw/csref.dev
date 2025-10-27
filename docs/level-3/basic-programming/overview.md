@@ -21,17 +21,17 @@ Week 2 — Control flow and small programs
 - Study `control-flow.md` and write small conditional and loop-driven programs.
 
 Week 3 — Data structures and searching
-- Read `data-structures.md`. Practice using lists, dictionaries, sets, and tuples.
+- Read `data-structures.md`. Practise using lists, dictionaries, sets, and tuples.
 
 Week 4 — Functions and decomposition
 - Read `functions.md`. Refactor earlier programs into functions and add docstrings.
 
 Week 5 — I/O, debugging and integration
-- Read `io-and-debugging.md`. Add file I/O to the grade calculator and practice debugging.
+- Read `io-and-debugging.md`. Add file I/O to the grade calculator and practise debugging.
 
 Week 6 — Project and polish
 - Complete the end-of-section project (described below).
-- Review `further-reading.md` and create a personal learning plan.
+- Review additional resources and create a personal learning plan.
 
 ## End-of-section mini-project — Class grades manager (recommended)
 
@@ -72,16 +72,3 @@ Grading rubric (self-assessment):
 - Start solving small problems on Exercism or Project Euler to build fluency.
 
 ---
-
-Related pages in this section:
-
-- Learning objectives — level-3/basic-programming/learning-objectives.md
-- Variables & types — level-3/basic-programming/variables-and-types.md
-- Control flow — level-3/basic-programming/control-flow.md
-- Data structures — level-3/basic-programming/data-structures.md
-- Functions — level-3/basic-programming/functions.md
-- I/O & Debugging — level-3/basic-programming/io-and-debugging.md
-- Examples — level-3/basic-programming/examples.md
-- Exercises — level-3/basic-programming/exercises.md
-- Solutions — level-3/basic-programming/solutions.md
-- Further reading — level-3/basic-programming/further-reading.md

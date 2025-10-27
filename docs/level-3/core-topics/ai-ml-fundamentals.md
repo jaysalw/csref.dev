@@ -34,6 +34,4 @@ Predicting house price: model looks for links between features (size, location) 
 
 1. Use an online ML demo (scikit-learn or Google Teachable Machine) and try training a small classifier. Note accuracy on training vs test set and explain why they differ.
 
-## Further reading
 
-- See the AI pages and `docs/references.bib` for beginner-friendly textbooks and tutorials.
