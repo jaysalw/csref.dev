@@ -25,5 +25,4 @@ Related pages in this section:
 - I/O & Debugging — level-3/basic-programming/io-and-debugging.md
 - Examples — level-3/basic-programming/examples.md
 - Exercises — level-3/basic-programming/exercises.md
-- Assessment — level-3/basic-programming/assessment.md
 - Further reading — level-3/basic-programming/further-reading.md
