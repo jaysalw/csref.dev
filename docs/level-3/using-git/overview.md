@@ -118,7 +118,7 @@ git rebase origin/main
 
 - Conflicts happen when the same lines are changed in two branches.
 - Steps to resolve:
-	1. Git will pause the merge or rebase and mark conflict files.
+ 1. Git will pause the merge or rebase and mark conflict files.
  2. Open the files, search for conflict markers `<<<<<<<`, `=======`, `>>>>>>>` and edit to the desired content.
  3. Stage the resolved files: `git add <file>`.
  4. Continue the merge (commit) or rebase (`git rebase --continue`).
