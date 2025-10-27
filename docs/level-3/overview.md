@@ -22,14 +22,14 @@ hide:
 
 -   :material-language-python: **Basic Programming**  
     Core programming concepts and worked examples (Python).  
-    [:material-arrow-right: Open](basic-programming/overview/)
+    [:material-arrow-right: Open](/level-3/basic-programming/overview/)
 
 -   :material-newspaper-variant-outline: **Core Topics**  
     Short lessons on AI, blockchain, emerging tech and labs.  
-    [:material-arrow-right: Open](core-topics/overview/)
+    [:material-arrow-right: Open](/level-3/core-topics/overview/)
 
 -   :material-git: **Using Git**  
     Practical version-control workflows and VS Code integration.  
-    [:material-arrow-right: Open](using-git/overview/)
+    [:material-arrow-right: Open](/level-3/using-git/overview/)
 
 </div>

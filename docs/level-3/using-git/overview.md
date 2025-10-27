@@ -13,19 +13,19 @@ hide:
 
 -   :material-git: **Guide**  
 	Detailed command-line Git guide and common workflows.  
-	[:material-arrow-right: Open](guide/)
+	[:material-arrow-right: Open](/level-3/using-git/guide/)
 
 -   :material-playlist-play: **Examples**  
 	Small, runnable examples: init, branch & merge, conflicts, push.  
-	[:material-arrow-right: Open](examples/)
+	[:material-arrow-right: Open](/level-3/using-git/examples/)
 
 -   :material-run: **Exercises**  
 	Progressive exercises from beginner to advanced.  
-	[:material-arrow-right: Open](exercises/)
+	[:material-arrow-right: Open](/level-3/using-git/exercises/)
 
 -   :material-code-tags: **Using Git in VS Code**  
 	Practical VS Code integration guide for Git workflows.  
-	[:material-arrow-right: Open](using-vs-code/)
+	[:material-arrow-right: Open](/level-3/using-git/using-vs-code/)
 
 </div>
 

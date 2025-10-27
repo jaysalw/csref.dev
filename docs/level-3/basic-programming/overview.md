@@ -13,39 +13,39 @@ hide:
 
 -   :material-bulb-outline: **Learning objectives**  
 	What you should be able to do after the module.  
-	[:material-arrow-right: Open](learning-objectives/)
+	[:material-arrow-right: Open](/level-3/basic-programming/learning-objectives/)
 
 -   :material-alpha-x-box-outline: **Variables & types**  
 	Values, types, mutability and common pitfalls.  
-	[:material-arrow-right: Open](variables-and-types/)
+	[:material-arrow-right: Open](/level-3/basic-programming/variables-and-types/)
 
 -   :material-forum-outline: **Control flow**  
 	Conditionals, loops and boolean logic.  
-	[:material-arrow-right: Open](control-flow/)
+	[:material-arrow-right: Open](/level-3/basic-programming/control-flow/)
 
 -   :material-database: **Data structures**  
 	Lists, dictionaries, sets and tuples with practical patterns.  
-	[:material-arrow-right: Open](data-structures/)
+	[:material-arrow-right: Open](/level-3/basic-programming/data-structures/)
 
 -   :material-function-variant: **Functions**  
 	Decomposition, parameters, return values, simple testing.  
-	[:material-arrow-right: Open](functions/)
+	[:material-arrow-right: Open](/level-3/basic-programming/functions/)
 
 -   :material-console: **I/O & Debugging**  
 	File I/O, error handling and debugging workflows.  
-	[:material-arrow-right: Open](io-and-debugging/)
+	[:material-arrow-right: Open](/level-3/basic-programming/io-and-debugging/)
 
 -   :material-playlist-play: **Examples**  
 	Worked examples you can run and adapt.  
-	[:material-arrow-right: Open](examples/)
+	[:material-arrow-right: Open](/level-3/basic-programming/examples/)
 
 -   :material-clipboard-text: **Exercises**  
 	Practice tasks from beginner to advanced.  
-	[:material-arrow-right: Open](exercises/)
+	[:material-arrow-right: Open](/level-3/basic-programming/exercises/)
 
 -   :material-check: **Solutions**  
 	Author solutions and hints — try exercises first.  
-	[:material-arrow-right: Open](solutions/)
+	[:material-arrow-right: Open](/level-3/basic-programming/solutions/)
 
 </div>
 
