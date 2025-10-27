@@ -40,3 +40,11 @@ pyyaml
 # Dev / Preview Tools
 # =========================================
 watchdog
+
+# =========================================
+# Hands-on / Labs dependencies
+# (optional: only needed to run the example notebooks/labs)
+scikit-learn
+pandas
+numpy
+jupyter
