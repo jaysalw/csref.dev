@@ -127,7 +127,7 @@ Use `defaultdict` to simplify accumulation:
 from collections import defaultdict
 dd = defaultdict(int)
 for k in ["a", "b", "a"]:
-	dd[k] += 1
+    dd[k] += 1
 ```
 
 ### Practical examples
