@@ -6,7 +6,7 @@ hide:
 
 # 4️⃣ Welcome to the Level 4 portal
 
-!!! info "Construction Site!"
+!!! info "🚧 Construction Site!"
     Some pages, notes, etc may not be available or complete.  
 
     If you wish to help us with this collection of notes, feel free to head to the [GitHub Repo](https://github.com/jaysalw/csref.dev).
@@ -16,6 +16,8 @@ hide:
     - **Level 4** - First Year 
     - **Level 5** - Second Year
     - **Level 6** - Third Year
+
+**Want to contribute?** See https://csref.dev/contributing
 
 ### 4️⃣ Level 4 Modules
 <div class="grid cards" markdown>

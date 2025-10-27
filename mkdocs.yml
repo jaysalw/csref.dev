@@ -1,4 +1,4 @@
-site_name: CS Ref
+site_name: csref.dev
 site_url: https://csref.dev
 site_description: A concise computer science reference with diagrams, notes, and worked examples.
 site_author: jaysalw
@@ -119,7 +119,7 @@ extra:
   generator: false
 
 extra_css:
-   - docs/assets/custom.css
+   - assets/custom.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
