@@ -1,30 +1,26 @@
 // Ensure Material theme and icon fonts are properly loaded
 (function () {
-  // Load Material Symbols font for icons if not already present
-  function ensureIconFont() {
-    var fontLink = document.querySelector('link[href*="fonts.googleapis.com"][href*="Material+Symbols"]');
-    if (!fontLink) {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0';
-      document.head.appendChild(link);
+  // Load both Material Symbols and Material Icons fonts for icon support
+  function ensureIconFonts() {
+    // Material Symbols font (used by newer Material designs)
+    if (!document.querySelector('link[href*="Material+Symbols"]')) {
+      var symbolsLink = document.createElement('link');
+      symbolsLink.rel = 'stylesheet';
+      symbolsLink.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
+      document.head.appendChild(symbolsLink);
+    }
+    
+    // Material Icons font (legacy, but still used by Material theme)
+    if (!document.querySelector('link[href*="Material+Icons"]')) {
+      var iconsLink = document.createElement('link');
+      iconsLink.rel = 'stylesheet';
+      iconsLink.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+      document.head.appendChild(iconsLink);
     }
   }
 
-  // Material theme uses window.md object for component management
   function initMaterial() {
-    ensureIconFont();
-    
-    // If Material's JS has loaded, any components should auto-initialize
-    // This is mainly a safety net for SPA navigation
-    if (window.md) {
-      try {
-        // Material theme automatically handles component initialization
-        // We don't need to explicitly call anything
-      } catch (e) {
-        // silent
-      }
-    }
+    ensureIconFonts();
   }
 
   if (document.readyState === 'loading') {
@@ -33,11 +29,9 @@
     initMaterial();
   }
 
-  // Re-initialize on SPA navigation (Material's navigation.instant feature)
+  // Re-initialize on SPA navigation
   var main = document.querySelector('main');
   if (main) {
-    new MutationObserver(function () {
-      ensureIconFont();
-    }).observe(main, { childList: true, subtree: true });
+    new MutationObserver(ensureIconFonts).observe(main, { childList: true, subtree: true });
   }
 })();

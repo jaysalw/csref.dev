@@ -3,6 +3,10 @@
  *  (keeps default Material look; sets dark header)
  *************************************************/
 
+/* Import Material icon fonts for :material-*: icon support */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 /* Limit content width for readability */
 :root {
   --md-typeset-max-width: 54rem;
