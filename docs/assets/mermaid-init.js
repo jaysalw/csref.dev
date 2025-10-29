@@ -11,6 +11,7 @@
   function initTheme() {
     if (!window.mermaid) return;
     try {
+      // Set theme and reset startOnLoad to prevent double-rendering
       mermaid.initialize({ startOnLoad: false, theme: currentTheme() });
     } catch (e) {
       // silent
