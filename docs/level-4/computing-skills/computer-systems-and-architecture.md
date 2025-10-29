@@ -54,7 +54,6 @@ flowchart LR
   CPU === DBUS === DMEM
 ```
 
-
 ## Instruction-Set Styles (RISC vs CISC)
 
 | Property | RISC (Reduced Instruction Set Computer) | CISC (Complex Instruction Set Computer) |
