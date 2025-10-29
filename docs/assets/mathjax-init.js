@@ -1,19 +1,44 @@
 (function () {
   function typeset() {
-    if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
-      MathJax.typesetPromise().catch(function () { /* ignore errors */ });
+    if (!window.MathJax) {
+      console.warn('MathJax not loaded yet');
+      return;
+    }
+    
+    try {
+      // Use typesetPromise if available (MathJax 3)
+      if (typeof MathJax.typesetPromise === 'function') {
+        MathJax.typesetPromise().catch(function (e) { 
+          console.warn('MathJax typeset error:', e);
+        });
+      } 
+      // Fallback for older versions
+      else if (typeof MathJax.typeset === 'function') {
+        MathJax.typeset();
+      }
+    } catch (e) {
+      console.warn('MathJax error:', e);
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', typeset);
-  } else {
-    typeset();
+  // Wait a bit for MathJax to fully load before calling typeset
+  function scheduleTypeset(delay) {
+    setTimeout(typeset, delay || 100);
   }
 
-  // Re-run typesetting when main content changes (useful for Material's SPA navigation)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      scheduleTypeset(100);
+    });
+  } else {
+    scheduleTypeset(100);
+  }
+
+  // Re-run typesetting on SPA navigation (Material theme)
   var main = document.querySelector('main');
   if (main) {
-    new MutationObserver(typeset).observe(main, { childList: true, subtree: true });
+    new MutationObserver(function() {
+      scheduleTypeset(100);
+    }).observe(main, { childList: true, subtree: true });
   }
 })();

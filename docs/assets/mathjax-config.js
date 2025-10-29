@@ -1,21 +1,12 @@
-// Configure MathJax before the library loads so we can control when typesetting happens
+// Configure MathJax before the library loads
 window.MathJax = {
   tex: {
-    // support common inline delimiters
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  },
-  startup: {
-    // disable automatic typeset so we can re-run typesetting after client-side navs
-    typeset: false
-  }
-};
-// Configure MathJax before the library loads so we can control when typesetting happens
-window.MathJax = {
-  tex: {
+    // Support inline and display math delimiters
     inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$','$$'], ['\\[','\\]']]
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
   },
   startup: {
+    // Disable automatic typesetting so we can call it manually after content loads
     typeset: false
   }
 };
