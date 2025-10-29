@@ -118,9 +118,6 @@ plugins:
   - redirects:
       redirect_maps:
         old/architectures.md: computer-architectures-extended.md
-  - mermaid2:
-      arguments:
-        theme: default
 
 markdown_extensions:
   - admonition

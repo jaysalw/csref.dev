@@ -6,11 +6,13 @@
     }
     
     try {
+      // Use typesetPromise if available (MathJax 3)
       if (typeof MathJax.typesetPromise === 'function') {
         MathJax.typesetPromise().catch(function (e) { 
           console.warn('MathJax typeset error:', e);
         });
       } 
+      // Fallback for older versions
       else if (typeof MathJax.typeset === 'function') {
         MathJax.typeset();
       }
@@ -19,6 +21,7 @@
     }
   }
 
+  // Wait a bit for MathJax to fully load before calling typeset
   function scheduleTypeset(delay) {
     setTimeout(typeset, delay || 100);
   }
@@ -31,6 +34,7 @@
     scheduleTypeset(100);
   }
 
+  // Re-run typesetting on SPA navigation (Material theme)
   var main = document.querySelector('main');
   if (main) {
     new MutationObserver(function() {
