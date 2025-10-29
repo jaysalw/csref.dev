@@ -133,7 +133,11 @@ markdown_extensions:
       permalink: true
       title: On this page
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.arithmatex:
@@ -163,8 +167,6 @@ extra_javascript:
   - assets/mathjax-config.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - assets/mathjax-init.js
-  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
-  - assets/mermaid-init.js
   - assets/prefers-color-scheme.js
 
 watch:
