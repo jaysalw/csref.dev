@@ -16,8 +16,7 @@ flowchart LR
   classDef bus fill:#111827,stroke:#9ca3af,stroke-width:2,color:#e5e7eb;
   classDef io  fill:#6b7280,stroke:#4b5563,stroke-width:1.5,color:#fff;
 
-  subgraph CPU["CPU (CU + ALU + Registers)"]
-  end
+  CPU["CPU (CU + ALU + Registers)"]:::cpu
   MEM["Main Memory (code + data)"]:::mem
   ABUS["Address Bus"]:::bus
   DBUS["Data Bus"]:::bus
@@ -42,8 +41,7 @@ flowchart LR
   classDef busI fill:#0b1325,stroke:#34d399,stroke-width:2,color:#d1fae5;
   classDef busD fill:#0b1325,stroke:#60a5fa,stroke-width:2,color:#dbeafe;
 
-  subgraph CPU["CPU (CU + ALU + RegFile)"]
-  end
+  CPU["CPU (CU + ALU + RegFile)"]:::cpu
   IMEM["Instruction Memory"]:::memI
   DMEM["Data Memory"]:::memD
   IBUS["Instruction Bus"]:::busI
@@ -245,13 +243,12 @@ flowchart TB
   classDef cache fill:#0f766e,stroke:#115e59,stroke-width:2,color:#ecfdf5;
   classDef mem fill:#14532d,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
 
-  subgraph GPU
-    SM1["SM/Compute Unit #1"]:::sm
-    SM2["SM/Compute Unit #2"]:::sm
-    SM3["SM/Compute Unit #3"]:::sm
-    L2["L2$ (shared)"]:::cache
-  end
+  SM1["SM/Compute Unit #1"]:::sm
+  SM2["SM/Compute Unit #2"]:::sm
+  SM3["SM/Compute Unit #3"]:::sm
+  L2["L2$ (shared)"]:::cache
   GDDR["Device Memory (GDDR)"]:::mem
+  
   SM1 --> L2 --> GDDR
   SM2 --> L2
   SM3 --> L2
