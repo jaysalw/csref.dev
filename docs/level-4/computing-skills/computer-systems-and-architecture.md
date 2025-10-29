@@ -127,19 +127,21 @@ flowchart LR
   classDef cache fill:#0f766e,stroke:#115e59,stroke-width:2,color:#ecfdf5;
   classDef mem fill:#14532d,stroke:#064e3b,stroke-width:2,color:#ecfdf5;
 
-  subgraph ARM_Core["ARM Core (AArch64)"]
-    RF[31 GP Registers + SP]:::core
-    ALU[ALU/NEON/FP]:::core
-    CU[Decode + Rename + Schedulers]:::core
-  end
+  RF[31 GP Registers + SP]:::core
+  ALU[ALU/NEON/FP]:::core
+  CU[Decode + Rename + Schedulers]:::core
   L1I["L1 I$"]:::cache
   L1D["L1 D$"]:::cache
   L2["L2$"]:::cache
   L3["L3$ (shared)"]:::cache
   MEM["DRAM"]:::mem
 
-  ARM_Core --- L1I
-  ARM_Core --- L1D
+  RF --> L1I
+  RF --> L1D
+  ALU --> L1I
+  ALU --> L1D
+  CU --> L1I
+  CU --> L1D
   L1I --> L2 --> L3 --> MEM
   L1D --> L2
 ```
@@ -198,13 +200,15 @@ flowchart TB
 ```mermaid
 flowchart TB
   classDef rf fill:#334155,stroke:#1f2937,stroke-width:1.5,color:#e5e7eb;
+  
   R0["Register Window n"]:::rf
   R1["Register Window n+1"]:::rf
   R2["Register Window n+2"]:::rf
-  R0 --- R1 --- R2
-  subgraph Visible
-    V["Out (n) ↔ In (n+1) overlap"]
-  end
+  
+  R0 --- R1
+  R1 --- R2
+  
+  note["Overlapping windows reduce call overhead"]
 ```
 
 ### Power/PowerPC (RISC)
