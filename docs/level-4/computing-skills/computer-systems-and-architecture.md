@@ -5,7 +5,6 @@ description: Comparative notes with diagrams for Von Neumann, Harvard, RISC, CIS
 
 # Computer Architectures
 
-
 ## System-Level Reference Models
 
 ### Von Neumann (shared program/data memory)
