@@ -144,6 +144,9 @@ markdown_extensions:
       auto_title: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
