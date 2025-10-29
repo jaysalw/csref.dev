@@ -160,7 +160,11 @@ extra_css:
    - assets/custom.css
 
 extra_javascript:
+  - assets/mathjax-config.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/mathjax-init.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - assets/mermaid-init.js
   - assets/prefers-color-scheme.js
 
 watch:
