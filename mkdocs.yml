@@ -111,8 +111,6 @@ plugins:
       bib_file: docs/references.bib
       cite_style: ieee
       cited_only: true
-  - minify:
-      minify_html: true
   - git-revision-date-localized:
       enable_creation_date: true
       fallback_to_build_date: true
