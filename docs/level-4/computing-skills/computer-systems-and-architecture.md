@@ -99,11 +99,11 @@ flowchart TB
 flowchart TB
   classDef block fill:#0f172a,stroke:#334155,stroke-width:1.5,color:#e5e7eb;
 
-  IR[Instruction Register]:::block
-  DECODE[Complex Decoder]:::block
-  MICRO[Microcode ROM]:::block
-  EU[Execution Unit (ALU, AGU, FP)]:::block
-  MEM[Memory Interface]:::block
+  IR["Instruction Register"]:::block
+  DECODE["Complex Decoder"]:::block
+  MICRO["Microcode ROM"]:::block
+  EU["Execution Unit (ALU, AGU, FP)"]:::block
+  MEM["Memory Interface"]:::block
 
   IR --> DECODE --> MICRO --> EU --> MEM
   MICRO --> MEM
