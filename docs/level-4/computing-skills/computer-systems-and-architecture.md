@@ -1,18 +1,14 @@
 ---
-title: Computer Architectures (Extended)
+title: Computer Architecture
 description: Comparative notes with diagrams for Von Neumann, Harvard, RISC, CISC, ARM, x86, MIPS, RISC‑V, SPARC, PowerPC, Itanium (IA‑64), GPU/SIMD, and DSP architectures.
 ---
 
-# Computer Architectures (Extended)
+# Computer Architectures
 
-This reference surveys classical and modern computer architectures used in computer science and industry.  
-All diagrams are **Mermaid** and equations render via **MathJax**.
 
----
+## System-Level Reference Models
 
-## 1. System-Level Reference Models
-
-### 1.1 Von Neumann (shared program/data memory)
+### Von Neumann (shared program/data memory)
 
 ```mermaid
 flowchart LR
@@ -37,7 +33,7 @@ flowchart LR
   CPU --> IOO
 ```
 
-### 1.2 Harvard (split instruction/data memory)
+### Harvard (split instruction/data memory)
 
 ```mermaid
 flowchart LR
@@ -58,9 +54,8 @@ flowchart LR
   CPU === DBUS === DMEM
 ```
 
----
 
-## 2. Instruction-Set Styles (RISC vs CISC)
+## Instruction-Set Styles (RISC vs CISC)
 
 | Property | RISC (Reduced Instruction Set Computer) | CISC (Complex Instruction Set Computer) |
 |---|---|---|
@@ -71,7 +66,7 @@ flowchart LR
 | Examples | ARM, MIPS, RISC‑V, SPARC, Power | x86/x86‑64, VAX, 68000 |
 | Design goals | High clock rates, easy pipelining, low power | Code density, rich instructions, backward compatibility |
 
-### 2.1 Abstract RISC datapath (load/store)
+### Abstract RISC datapath (load/store)
 
 ```mermaid
 flowchart TB
@@ -102,7 +97,7 @@ flowchart TB
   CU -.controls.-> DMEM
 ```
 
-### 2.2 Abstract CISC execution with microcode
+### Abstract CISC execution with microcode
 
 ```mermaid
 flowchart TB
@@ -118,11 +113,9 @@ flowchart TB
   MICRO --> MEM
 ```
 
----
+## Representative Architectures
 
-## 3. Representative Architectures
-
-### 3.1 ARM (AArch32/AArch64, RISC)
+### ARM (AArch32/AArch64, RISC)
 
 - Load/store design, fixed-length instructions (AArch32: mostly 32-bit; AArch64: 32-bit).  
 - Large register file; optional predication; Thumb/Thumb-2 for code density.  
@@ -151,7 +144,7 @@ flowchart LR
   L1D --> L2
 ```
 
-### 3.2 x86/x86‑64 (CISC ISA with RISC-like core)
+### x86/x86‑64 (CISC ISA with RISC-like core)
 
 - Variable-length instructions decoded into micro‑ops, then scheduled to execution units.  
 - Out‑of‑order execution, register renaming, deep pipelines; SIMD (SSE/AVX/AVX‑512).
@@ -178,14 +171,14 @@ flowchart LR
   L1D --> AGU
 ```
 
-### 3.3 MIPS (classic RISC)
+### MIPS (classic RISC)
 
 ```mermaid
 flowchart LR
   IF[IF] --> ID[ID] --> EX[EX] --> MEM[MEM] --> WB[WB]
 ```
 
-### 3.4 RISC‑V (open RISC ISA)
+### RISC‑V (open RISC ISA)
 
 ```mermaid
 flowchart TB
@@ -197,7 +190,7 @@ flowchart TB
   BASE --> V["V: Vector"]
 ```
 
-### 3.5 SPARC (Scalable Processor ARChitecture, RISC)
+### SPARC (Scalable Processor ARChitecture, RISC)
 
 - Windowed register file reduces procedure call overhead.  
 - 32 registers visible at a time; windows overlap across calls.
@@ -214,7 +207,7 @@ flowchart TB
   end
 ```
 
-### 3.6 Power/PowerPC (RISC)
+### Power/PowerPC (RISC)
 
 - Fixed-length encodings; separate integer and FP register files; strong IBM server lineage.
 
@@ -226,7 +219,7 @@ flowchart LR
   FPU --> LSU
 ```
 
-### 3.7 Itanium IA‑64 (EPIC / VLIW‑like)
+### Itanium IA‑64 (EPIC / VLIW‑like)
 
 - Explicitly Parallel Instruction Computing: compiler bundles independent ops; predication & rotating registers.  
 - Long instruction words issue to multiple functional units in parallel.
@@ -239,7 +232,7 @@ flowchart TB
   BUNDLE --> MEMU[Mem Unit]
 ```
 
-### 3.8 GPU / SIMD / SIMT
+### GPU / SIMD / SIMT
 
 - Thousands of lightweight threads; warps/wavefronts execute in lockstep (SIMT).  
 - Wide vector ALUs, high memory bandwidth, latency hiding by oversubscription.
@@ -262,7 +255,7 @@ flowchart TB
   SM3 --> L2
 ```
 
-### 3.9 DSP Harvard Variants
+### DSP Harvard Variants
 
 - Strict Harvard with separate program/data memories, specialized **MAC (multiply–accumulate)** units, circular buffers.
 
@@ -276,7 +269,7 @@ flowchart LR
 
 ---
 
-## 4. Pipeline and Hazards
+## Pipeline and Hazards
 
 ```mermaid
 gantt
@@ -299,9 +292,7 @@ gantt
 **Hazards**: structural (resource conflict), data (RAW/WAR/WAW), and control (branches).  
 Mitigations: forwarding/bypassing, scoreboarding, branch prediction.
 
----
-
-## 5. Caches and Memory Hierarchy
+## Caches and Memory Hierarchy
 
 Average Memory Access Time (AMAT):
 
@@ -314,9 +305,7 @@ flowchart TB
   REG[Registers] --> L1[L1 Cache] --> L2[L2 Cache] --> L3[L3 Cache] --> MEM[DRAM] --> SSD[SSD] --> HDD[HDD/Tape]
 ```
 
----
-
-## 6. Performance Metrics
+## Performance Metrics
 
 Execution time, CPI, and MIPS:
 
@@ -334,9 +323,7 @@ $$
 S \approx \text{# of pipeline stages}
 $$
 
----
-
-## 7. References
+## References
 
 - Patterson, D. A., & Hennessy, J. L. (2021). *Computer Organization and Design: The Hardware/Software Interface* (6th ed.). Morgan Kaufmann.  
 - Hennessy, J. L., & Patterson, D. A. (2019). *Computer Architecture: A Quantitative Approach* (6th ed.). Morgan Kaufmann.  
