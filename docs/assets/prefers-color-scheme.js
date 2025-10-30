@@ -21,7 +21,7 @@
       document.documentElement.setAttribute('data-md-color-scheme', name);
       // Update fallback icon if present
       const fbIcon = document.querySelector('.csref-theme-toggle__icon');
-      if (fbIcon) fbIcon.textContent = name === DARK ? 'dark_mode' : 'light_mode';
+      if (fbIcon) fbIcon.innerHTML = name === DARK ? SVG_MOON : SVG_SUN;
     } catch (e) {
       // silent
     }
@@ -69,12 +69,11 @@
     btn.style.border = 'none';
     btn.style.cursor = 'pointer';
 
-    const icon = document.createElement('span');
-    icon.className = 'material-symbols-outlined csref-theme-toggle__icon';
-    icon.setAttribute('aria-hidden', 'true');
-    icon.style.fontSize = '20px';
-    icon.textContent = document.documentElement.getAttribute('data-md-color-scheme') === DARK ? 'dark_mode' : 'light_mode';
-    btn.appendChild(icon);
+  const icon = document.createElement('span');
+  icon.className = 'csref-theme-toggle__icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.innerHTML = document.documentElement.getAttribute('data-md-color-scheme') === DARK ? SVG_MOON : SVG_SUN;
+  btn.appendChild(icon);
 
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -89,7 +88,7 @@
       else searchEl.parentNode.appendChild(btn);
     } else {
       const container = document.querySelector('.md-header__meta') || document.querySelector('.md-header');
-      if (container) container.insertBefore(btn, container.firstChild);
+      if (container) container.appendChild(btn);
     }
 
     return btn;
