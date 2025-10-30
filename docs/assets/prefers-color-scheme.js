@@ -42,6 +42,23 @@
   }
 
   function toggleThemeAndSave() {
+    // Prefer to use the native theme toggle if it exists and renders an icon,
+    // so the Material theme's own logic runs. Otherwise, fall back to applying
+    // the attribute directly.
+    const native = findNativeToggle();
+    const nativeVisible = native && isVisible(native);
+    const nativeHasIcon = nativeVisible && (native.querySelector('svg') || native.querySelector('.material-symbols-outlined') || native.querySelector('i[class*="fa-"]'));
+
+    if (nativeHasIcon) {
+      // Let the native toggle handle switching; persist the result after it happens
+      native.click();
+      setTimeout(function () {
+        const scheme = document.documentElement.getAttribute('data-md-color-scheme');
+        if (scheme === DARK || scheme === LIGHT) saveTheme(scheme);
+      }, 120);
+      return;
+    }
+
     const current = document.documentElement.getAttribute('data-md-color-scheme');
     const nowDark = current === DARK;
     const next = nowDark ? LIGHT : DARK;
