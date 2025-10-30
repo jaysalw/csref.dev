@@ -92,12 +92,8 @@ nav:
       - Overview: level-4/overview.md
       - Computing Skills:
           - Overview: level-4/computing-skills/overview.md
+          - Basic Maths: level-4/computing-skills/basic-maths.md
           - Computer Systems and Architecture: level-4/computing-skills/computer-systems-and-architecture.md
-          - Data Representation: level-4/computing-skills/data-representation.md
-          - Computational Thinking: level-4/computing-skills/computational-thinking.md
-          - Python Fundamentals: level-4/computing-skills/python-fundamentals.md
-          - Modelling and Abstraction: level-4/computing-skills/modelling-and-abstraction.md
-          - Ethics and AI: level-4/computing-skills/ethics-and-ai.md
       - Software Development:
           - Overview: level-4/software-development/overview.md
       - Tech Stack:
