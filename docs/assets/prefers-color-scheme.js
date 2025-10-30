@@ -21,7 +21,7 @@
       document.documentElement.setAttribute('data-md-color-scheme', name);
       // Update fallback icon if present
       const fbIcon = document.querySelector('.csref-theme-toggle__icon');
-      if (fbIcon) fbIcon.textContent = name === DARK ? 'dark_mode' : 'light_mode';
+      if (fbIcon) fbIcon.innerHTML = name === DARK ? SVG_MOON : SVG_SUN;
     } catch (e) {
       // silent
     }
@@ -42,6 +42,23 @@
   }
 
   function toggleThemeAndSave() {
+    // Prefer to use the native theme toggle if it exists and renders an icon,
+    // so the Material theme's own logic runs. Otherwise, fall back to applying
+    // the attribute directly.
+    const native = findNativeToggle();
+    const nativeVisible = native && isVisible(native);
+    const nativeHasIcon = nativeVisible && (native.querySelector('svg') || native.querySelector('.material-symbols-outlined') || native.querySelector('i[class*="fa-"]'));
+
+    if (nativeHasIcon) {
+      // Let the native toggle handle switching; persist the result after it happens
+      native.click();
+      setTimeout(function () {
+        const scheme = document.documentElement.getAttribute('data-md-color-scheme');
+        if (scheme === DARK || scheme === LIGHT) saveTheme(scheme);
+      }, 120);
+      return;
+    }
+
     const current = document.documentElement.getAttribute('data-md-color-scheme');
     const nowDark = current === DARK;
     const next = nowDark ? LIGHT : DARK;
@@ -69,12 +86,11 @@
     btn.style.border = 'none';
     btn.style.cursor = 'pointer';
 
-    const icon = document.createElement('span');
-    icon.className = 'material-symbols-outlined csref-theme-toggle__icon';
-    icon.setAttribute('aria-hidden', 'true');
-    icon.style.fontSize = '20px';
-    icon.textContent = document.documentElement.getAttribute('data-md-color-scheme') === DARK ? 'dark_mode' : 'light_mode';
-    btn.appendChild(icon);
+  const icon = document.createElement('span');
+  icon.className = 'csref-theme-toggle__icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.innerHTML = document.documentElement.getAttribute('data-md-color-scheme') === DARK ? SVG_MOON : SVG_SUN;
+  btn.appendChild(icon);
 
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -89,7 +105,7 @@
       else searchEl.parentNode.appendChild(btn);
     } else {
       const container = document.querySelector('.md-header__meta') || document.querySelector('.md-header');
-      if (container) container.insertBefore(btn, container.firstChild);
+      if (container) container.appendChild(btn);
     }
 
     return btn;

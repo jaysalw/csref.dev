@@ -74,10 +74,11 @@
 
   // Re-init when theme changes
   new MutationObserver(function() {
-    if (window.mermaid) {
-      try {
-        mermaid.initialize({ theme: currentTheme() });
-      } catch (e) {}
+    // Re-initialize and re-render mermaid diagrams when the Material theme attribute changes
+    try {
+      initMermaid();
+    } catch (e) {
+      console.warn('Mermaid re-init failed:', e);
     }
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
 })();
