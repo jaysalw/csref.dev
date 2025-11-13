@@ -7,7 +7,6 @@ export default function DocSidebar(props) {
   const [mounted, setMounted] = useState(false);
   const [level, setLevel] = useState(null);
   const [currentModule, setCurrentModule] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
