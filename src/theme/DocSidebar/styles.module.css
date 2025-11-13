@@ -1,0 +1,28 @@
+.selector {
+  background: var(--ifm-background-surface);
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.selectorHeader {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+}
+.headerIcon { font-size: 20px; margin-right: 8px; }
+.headerTitle { font-weight: 600; color: var(--ifm-color-primary); flex: 1 }
+.caret { opacity: 0.8 }
+.selectorList { display: flex; flex-direction: column; padding-top: 6px }
+.selectorItem {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+.selectorItem:hover { background: rgba(255,255,255,0.02) }
+.emoji { margin-right: 10px; font-size: 18px }
+.itemLabel { font-size: 14px }
