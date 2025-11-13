@@ -7,6 +7,7 @@ export default function DocSidebar(props) {
   const [mounted, setMounted] = useState(false);
   const [level, setLevel] = useState(null);
   const [currentModule, setCurrentModule] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -44,31 +45,36 @@ export default function DocSidebar(props) {
   };
 
   const currentModuleData = getCurrentModuleData();
-  const displayLabel = currentModule || (level === 'level-3' ? 'Level 3 Modules' : 'Level 4 Modules');
-  const displayEmoji = currentModuleData?.emoji || '📚';
 
   return (
     <div>
-      {mounted && level && (
+      {mounted && level && currentModuleData && (
         <div className={styles.selector}>
-          <div className={styles.selectorHeader}>
-            <span className={styles.headerTitle}>
-              {level === 'level-3' ? '📚 Level 3 Modules' : '🎓 Level 4 Modules'}
-            </span>
-          </div>
-          <div className={styles.selectorList}>
-            {modules[level].map((m) => (
-              <Link 
-                key={m.to} 
-                className={`${styles.selectorItem} ${m.label === currentModule ? styles.active : ''}`} 
-                to={m.to}
-              >
-                <span className={styles.emoji}>{m.emoji}</span>
-                <span className={styles.itemLabel}>{m.label}</span>
-                {m.label === currentModule && <span className={styles.checkmark}>✓</span>}
-              </Link>
-            ))}
-          </div>
+          <button 
+            className={styles.selectorHeader}
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+          >
+            <span className={styles.emoji}>{currentModuleData.emoji}</span>
+            <span className={styles.headerTitle}>{currentModuleData.label}</span>
+            <span className={`${styles.caret} ${isOpen ? styles.caretOpen : ''}`}>▼</span>
+          </button>
+          {isOpen && (
+            <div className={styles.selectorList}>
+              {modules[level].map((m) => (
+                <Link 
+                  key={m.to} 
+                  className={`${styles.selectorItem} ${m.label === currentModule ? styles.active : ''}`} 
+                  to={m.to}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span className={styles.emoji}>{m.emoji}</span>
+                  <span className={styles.itemLabel}>{m.label}</span>
+                  {m.label === currentModule && <span className={styles.checkmark}>✓</span>}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       )}
       <OriginalDocSidebar {...props} />
