@@ -112,9 +112,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                type: 'doc',
-                docId: 'overview',
                 label: 'Overview',
+                to: '/docs/overview',
               },
             ],
           },
