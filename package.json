@@ -22,8 +22,7 @@
     "remark-math": "^5.1.1",
     "rehype-katex": "^6.0.2",
     "katex": "^0.13.24",
-    "@docusaurus/theme-mermaid": "2.0.1",
-    "mermaid": "^9.4.3"
+    
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.1"

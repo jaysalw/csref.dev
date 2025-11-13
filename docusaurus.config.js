@@ -27,14 +27,19 @@ const config = {
     locales: ['en'],
   },
 
-  // add mermaid theme and KaTeX stylesheet
-  themes: ['@docusaurus/theme-mermaid'],
-
+  // KaTeX stylesheet for math rendering and mermaid via CDN
   stylesheets: [
     // KaTeX stylesheet for math rendering
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
       type: 'text/css',
+    },
+  ],
+  // load mermaid from CDN so we avoid theme version mismatches on build
+  scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js',
+      defer: true,
     },
   ],
 
