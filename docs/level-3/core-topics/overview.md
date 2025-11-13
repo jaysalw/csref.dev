@@ -26,4 +26,4 @@ Survey pages for quantum, IoT, edge and more.
 ##  Labs
 Hands-on labs: AI/ML lab and Blockchain lab.
 
-[Open ](./labs/README)
+[Open ](./labs/)
