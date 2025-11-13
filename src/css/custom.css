@@ -28,3 +28,38 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Cards style for quickstart (gradient tiles) */
+.module-card {
+  background: linear-gradient(135deg, rgba(66,66,255,0.12), rgba(66,255,180,0.06));
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.03);
+  margin: 0.5rem 0;
+}
+
+.module-card h3 { margin-top: 0; }
+
+/* Mermaid container tweaks */
+.markdown mermaid, .markdown pre code.language-mermaid {
+  background: transparent;
+}
+
+/* Floating theme toggle similar to screenshot */
+.floating-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-primary);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  color: white;
+  z-index: 1000;
+}
+
