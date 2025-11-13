@@ -1,6 +1,7 @@
 ---
 id: level-4-overview
 title: Level 4 Overview
+slug: /docs/level-4/overview
 ---
 
 Welcome to the Level 4 area. This will contain your final-year modules.
