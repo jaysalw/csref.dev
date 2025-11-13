@@ -1,13 +1,12 @@
 .selector {
-  position: sticky;
-  top: 16px;
-  z-index: 10;
+  position: relative;
+  z-index: 100;
   background: var(--ifm-background-surface);
   border-radius: 10px;
   margin: 16px 12px 24px 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   border: 1px solid var(--ifm-color-emphasis-200);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .selectorHeader {
@@ -61,6 +60,15 @@
   flex-direction: column;
   background: var(--ifm-background-surface);
   padding: 4px 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  border-radius: 0 0 10px 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-top: none;
 }
 
 .selectorItem {
