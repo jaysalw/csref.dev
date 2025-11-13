@@ -1,6 +1,7 @@
 ---
 id: level-3-cs301
 title: CS301 — Example Module
+sidebar: level-3-cs301-sidebar
 ---
 
 This is an example module page for CS301. Add lecture notes, examples and subpages as needed.
