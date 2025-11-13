@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'csref.dev',
+  tagline: 'Course notes and modules',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -27,6 +27,18 @@ const config = {
     locales: ['en'],
   },
 
+  // add mermaid plugin and theme, and KaTeX stylesheet
+  plugins: ['docusaurus-plugin-mermaid'],
+  themes: ['@docusaurus/theme-mermaid'],
+
+  stylesheets: [
+    // KaTeX stylesheet for math rendering
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -38,6 +50,9 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // enable math support in Markdown
+          remarkPlugins: [require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
         },
         blog: {
           showReadingTime: true,
@@ -57,7 +72,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Digital Support Services Notes',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -70,6 +85,14 @@ const config = {
             label: 'Tutorial',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            label: 'Modules',
+            position: 'left',
+            items: [
+              {label: 'Level 3', to: '/docs/level-3/overview'},
+              {label: 'Level 4', to: '/docs/level-4/overview'},
+            ],
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
