@@ -36,22 +36,28 @@ export default function DocSidebar(props) {
   };
 
   const getCurrentModuleData = () => {
-    if (!level || !currentModule) return null;
-    return modules[level].find(m => m.label === currentModule);
+    if (!level) return null;
+    if (currentModule) {
+      return modules[level].find(m => m.label === currentModule);
+    }
+    // Default to first module if not on a specific module page
+    return modules[level][0];
   };
 
   const currentModuleData = getCurrentModuleData();
+  const displayLabel = currentModule || (level === 'level-3' ? 'Level 3 Modules' : 'Level 4 Modules');
+  const displayEmoji = currentModuleData?.emoji || '📚';
 
   return (
     <div>
-      {mounted && level && currentModuleData && (
+      {mounted && level && (
         <div className={styles.selector}>
           <button 
             className={styles.selectorHeader}
             onClick={() => setIsOpen(!isOpen)}
           >
-            <span className={styles.emoji}>{currentModuleData.emoji}</span>
-            <span className={styles.headerTitle}>{currentModuleData.label}</span>
+            <span className={styles.emoji}>{displayEmoji}</span>
+            <span className={styles.headerTitle}>{displayLabel}</span>
             <span className={`${styles.caret} ${isOpen ? styles.caretOpen : ''}`}>▼</span>
           </button>
           {isOpen && (
