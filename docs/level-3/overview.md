@@ -1,32 +1,35 @@
----
-id: level-3-overview
-slug: /level-3/overview
-title: Level 3 Overview
+﻿---
+title: Level 3 Portal
 ---
 
-Welcome to the Level 3 area. Below are the modules for this year.
+# 3 Welcome to the Level 3 portal
 
-## Modules
+:::info  Construction Site!
+Some pages, notes, etc may not be available or complete.
 
-- [CS301 - Example Module](./cs301/)
-- [CS302 - Another Module](./cs302/)
+If you wish to help us with this collection of notes, feel free to head to the [GitHub Repo](https://github.com/jaysalw/csref.dev).
+:::
 
-## Quick Math sample
+:::info What do the Levels mean?
+- **Level 3** - University Foundation Year, equivilent to an A-Level or BTEC Extended Diploma Qualification/s.
+- **Level 4** - First Year
+- **Level 5** - Second Year
+- **Level 6** - Third Year
+:::
 
-Inline math: $a^2 + b^2 = c^2$.
+## 3 Level 3 Modules
 
-Block math:
+###  Basic Programming
+Core programming concepts and worked examples (Python).
 
-$$
-\\int_0^1 x^2 \, dx = \\frac{1}{3}
-$$
+[Open ](./basic-programming/overview)
 
-## Mermaid sample
+###  Core Topics
+Short lessons on AI, blockchain, emerging tech and labs.
 
-```mermaid
-graph LR
-  A[Lectures] --> B[Practicals]
-  B --> C[Assessments]
-```
+[Open ](./core-topics/overview)
 
-You can add module pages and subpages inside this folder.
+###  Using Git
+Practical version-control workflows and VS Code integration.
+
+[Open ](./using-git/overview)
