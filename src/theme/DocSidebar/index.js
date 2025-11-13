@@ -51,29 +51,24 @@ export default function DocSidebar(props) {
     <div>
       {mounted && level && (
         <div className={styles.selector}>
-          <button 
-            className={styles.selectorHeader}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <span className={styles.emoji}>{displayEmoji}</span>
-            <span className={styles.headerTitle}>{displayLabel}</span>
-            <span className={`${styles.caret} ${isOpen ? styles.caretOpen : ''}`}>▼</span>
-          </button>
-          {isOpen && (
-            <div className={styles.selectorList}>
-              {modules[level].map((m) => (
-                <Link 
-                  key={m.to} 
-                  className={`${styles.selectorItem} ${m.label === currentModule ? styles.active : ''}`} 
-                  to={m.to}
-                >
-                  <span className={styles.emoji}>{m.emoji}</span>
-                  <span className={styles.itemLabel}>{m.label}</span>
-                  {m.label === currentModule && <span className={styles.checkmark}>✓</span>}
-                </Link>
-              ))}
-            </div>
-          )}
+          <div className={styles.selectorHeader}>
+            <span className={styles.headerTitle}>
+              {level === 'level-3' ? '📚 Level 3 Modules' : '🎓 Level 4 Modules'}
+            </span>
+          </div>
+          <div className={styles.selectorList}>
+            {modules[level].map((m) => (
+              <Link 
+                key={m.to} 
+                className={`${styles.selectorItem} ${m.label === currentModule ? styles.active : ''}`} 
+                to={m.to}
+              >
+                <span className={styles.emoji}>{m.emoji}</span>
+                <span className={styles.itemLabel}>{m.label}</span>
+                {m.label === currentModule && <span className={styles.checkmark}>✓</span>}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
       <OriginalDocSidebar {...props} />
