@@ -1,7 +1,6 @@
 ---
-id: overview-root
+id: overview
 title: Course Modules Overview
-slug: /docs/overview
 ---
 
 # Course Modules Overview
