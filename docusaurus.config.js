@@ -82,17 +82,15 @@ const config = {
             label: 'Level 3',
             position: 'left',
             items: [
-              {type: 'doc', docId: 'level-3-overview', label: 'Overview'},
-              {type: 'doc', docId: 'level-3-cs301', label: 'CS301 - Example Module'},
-              {type: 'doc', docId: 'level-3-cs302', label: 'CS302 - Another Module'},
+              {label: '📘 CS301 — Example Module', to: '/docs/level-3/cs301/'},
+              {label: '📗 CS302 — Another Module', to: '/docs/level-3/cs302/'},
             ],
           },
           {
             label: 'Level 4',
             position: 'left',
             items: [
-              {type: 'doc', docId: 'level-4-overview', label: 'Overview'},
-              {type: 'doc', docId: 'level-4-cs401', label: 'CS401 - Capstone'},
+              {label: '🎓 CS401 — Capstone', to: '/docs/level-4/cs401/'},
             ],
           },
           {
