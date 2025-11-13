@@ -1,6 +1,6 @@
 ---
 id: level-4-overview
-slug: /docs/level-4/overview
+slug: /level-4/overview
 title: Level 4 Overview
 ---
 
