@@ -71,7 +71,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Digital Support Services Notes',
+        title: 'Computer Science Reference',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
