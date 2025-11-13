@@ -6,14 +6,23 @@ import styles from './styles.module.css';
 export default function DocSidebar(props) {
   const [mounted, setMounted] = useState(false);
   const [level, setLevel] = useState(null);
+  const [currentModule, setCurrentModule] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     if (typeof window === 'undefined') return;
     const p = window.location.pathname;
-    if (p.includes('/docs/level-3/')) setLevel('level-3');
-    else if (p.includes('/docs/level-4/')) setLevel('level-4');
-    else setLevel(null);
+    if (p.includes('/docs/level-3/')) {
+      setLevel('level-3');
+      if (p.includes('/cs301/')) setCurrentModule('CS301');
+      else if (p.includes('/cs302/')) setCurrentModule('CS302');
+    } else if (p.includes('/docs/level-4/')) {
+      setLevel('level-4');
+      if (p.includes('/cs401/')) setCurrentModule('CS401');
+    } else {
+      setLevel(null);
+    }
   }, []);
 
   const modules = {
@@ -26,23 +35,40 @@ export default function DocSidebar(props) {
     ],
   };
 
+  const getCurrentModuleData = () => {
+    if (!level || !currentModule) return null;
+    return modules[level].find(m => m.label === currentModule);
+  };
+
+  const currentModuleData = getCurrentModuleData();
+
   return (
     <div>
-      {mounted && level && (
+      {mounted && level && currentModuleData && (
         <div className={styles.selector}>
-          <div className={styles.selectorHeader}>
-            <span className={styles.headerIcon}>📚</span>
-            <span className={styles.headerTitle}>{level === 'level-3' ? 'Level 3' : 'Level 4'}</span>
-            <span className={styles.caret}>▾</span>
-          </div>
-          <div className={styles.selectorList}>
-            {modules[level].map((m) => (
-              <Link key={m.to} className={styles.selectorItem} to={m.to}>
-                <span className={styles.emoji}>{m.emoji}</span>
-                <span className={styles.itemLabel}>{m.label}</span>
-              </Link>
-            ))}
-          </div>
+          <button 
+            className={styles.selectorHeader}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span className={styles.emoji}>{currentModuleData.emoji}</span>
+            <span className={styles.headerTitle}>{currentModuleData.label}</span>
+            <span className={`${styles.caret} ${isOpen ? styles.caretOpen : ''}`}>▼</span>
+          </button>
+          {isOpen && (
+            <div className={styles.selectorList}>
+              {modules[level].map((m) => (
+                <Link 
+                  key={m.to} 
+                  className={`${styles.selectorItem} ${m.label === currentModule ? styles.active : ''}`} 
+                  to={m.to}
+                >
+                  <span className={styles.emoji}>{m.emoji}</span>
+                  <span className={styles.itemLabel}>{m.label}</span>
+                  {m.label === currentModule && <span className={styles.checkmark}>✓</span>}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       )}
       <OriginalDocSidebar {...props} />
