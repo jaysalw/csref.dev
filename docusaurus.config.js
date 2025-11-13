@@ -85,11 +85,20 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            label: 'Modules',
+            label: 'Level 3',
             position: 'left',
             items: [
-              {label: 'Level 3', to: '/docs/level-3/overview'},
-              {label: 'Level 4', to: '/docs/level-4/overview'},
+              {type: 'doc', docId: 'level-3-overview', label: 'Overview'},
+              {type: 'doc', docId: 'level-3-cs301', label: 'CS301 - Example Module'},
+              {type: 'doc', docId: 'level-3-cs302', label: 'CS302 - Another Module'},
+            ],
+          },
+          {
+            label: 'Level 4',
+            position: 'left',
+            items: [
+              {type: 'doc', docId: 'level-4-overview', label: 'Overview'},
+              {type: 'doc', docId: 'level-4-cs401', label: 'CS401 - Capstone'},
             ],
           },
           {

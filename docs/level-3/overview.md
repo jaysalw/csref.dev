@@ -1,5 +1,5 @@
 ---
-id: overview
+id: level-3-overview
 title: Level 3 Overview
 ---
 
@@ -7,8 +7,8 @@ Welcome to the Level 3 area. Below are the modules for this year.
 
 ## Modules
 
-- [CS301 - Example Module](./module-cs301)
-- [CS302 - Another Module](./module-cs302)
+- [CS301 - Example Module](./cs301/)
+- [CS302 - Another Module](./cs302/)
 
 ## Quick Math sample
 
