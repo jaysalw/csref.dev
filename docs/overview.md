@@ -1,5 +1,6 @@
 ---
-slug: /overview
+id: overview
+slug: /docs/overview
 title: Course Modules Overview
 ---
 

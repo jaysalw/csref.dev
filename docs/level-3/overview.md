@@ -1,5 +1,8 @@
-slug: /level-3/overview
+---
+id: level-3-overview
+slug: /docs/level-3/overview
 title: Level 3 Overview
+---
 
 Welcome to the Level 3 area. Below are the modules for this year.
 
